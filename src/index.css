@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.the-big-nicknames-banner {
+  font-family: 'Times New Roman', Times, serif;
+  /*font-family: monospace;*/
+}
+
+.selected-effect {
+  background-color: black;
+  color: white;
+}
+
+.not-selected {
+  --tw-bg-opacity: 1;
+  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  color: black;
+}
+
+@layer base {
+  h1 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    @apply text-2xl sm:text-3xl 2xl:text-4xl
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  nav {
+    font-family: 'Yantramanav', "Open Sans", sans-serif;
+  }
+
+  h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    @apply text-lg sm:text-xl 2xl:text-2xl
+  }
+
+  h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    @apply text-md sm:text-lg 2xl:text-xl
+  }
+}
+
+@layer components {
+  .navbutton-style {
+    @apply w-auto border-opacity-20 px-2 hover: opacity-80 hover:border-opacity-10 active:opacity-60 active:border-opacity-5 text-sm tiny-screen:text-base sm:text-lg md:text-xl xl:text-2xl;
+    text-shadow: 1px 1px rgba(255, 0, 0, 0.3);
+  }
+
+  .navbutton-rightsidemenu-style {
+    @apply navbutton-style text-lg tiny-screen:text-xl
+  }
+
+  .about-me-paragraph {
+    @apply text-white py-4 px-2 text-base sm:text-lg 2xl:text-xl col-start-1
+  }
+
+  .about-me-grid-item {
+    @apply py-1 px-4
+  }
+
+  .homepage-paragraph {
+    @apply about-me-paragraph py-3 px-0 text-left
+  }
+
+  .about-me-img {
+    @apply shadow-lg w-11/12 tiny-screen:w-4/5 sm:w-3/5 md:w-10/12 lg:w-11/12 xl:w-10/12
+  }
+
+  .about-me-img-caption {
+    @apply text-xs sm:text-sm xl:text-base text-center italic
+  }
+
+  .blue-n-purple-link {
+    @apply underline active:text-blue-900 text-blue-600 hover:text-blue-700 visited:text-purple-600
+  }
+
+  .inline-red-bg-link {
+    text-shadow: 1px 1px rgba(255, 0, 0, 0.2);
+    @apply hover:opacity-80 active:opacity-60;
+  }
+
+}
+
+@layer utilities {
+  .open-sans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .mild-text-shadow-left-down {
+    text-shadow: -2px 2px 0px rgba(0, 0, 0, 0.2);
+    
+  }
+
+}

@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "landing2-raidsrc",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
