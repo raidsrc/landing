@@ -1,6 +1,7 @@
 import React from "react"
 import me2021dec from "./me_2021_dec.jpeg"
 
+
 function CenteredFullPageFlexContainer(props) {
   return (
     <div className="flex justify-center w-full"
