@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import me2021dec from "./me_2021_dec.jpeg"
 import hairBlown from "./hair blown.jpg"
-
+import spiro from "./Homestuck_Spirograph.svg"
 
 
 function CenteredFullPageFlexContainer(props) {
@@ -122,7 +122,7 @@ function SupPage(props) {
             <li>Oh, and also. Meritocracy is a myth, race has no genetic basis, and IQ is not a complete indication of intelligence. That's also pretty important. </li>
           </ul>
           <p>
-            Alright. Peace. Go check out the links on the previous page if you want to know more about me or figure out what else I'm up to. 
+            Alright. Peace. Go check out the links on the previous page if you want to know more about me or figure out what else I'm up to.
             {/* The link is at the top of the previous page. <NewTab className="inline-red-bg-link text-gray-100" href="https://raidsrc.me">It's also right here</NewTab>, in case you're too lazy to click the back button. */}
           </p>
           <p>
@@ -145,13 +145,16 @@ function App(props) {
 
   return (
     <div>
-      <div className="pb-20">
+      <div className="pb-20 z-20">
         <CenteredFullPageFlexContainer>
           {/* the plan: centered circle image of me. big text below that say Raid. or Bite Me. or Ray Louis. below that have links to where i be at. youtube, spotify, apple music, etc. have them arranged like linktree has it but different. wide buttons with off-white colored backgrounds. black text. icons on the buttons.*/}
           {showSupPage ? <SupPage setShowSupPage={setShowSupPage} /> : <PrimaryLandingPage setShowSupPage={setShowSupPage} />}
-
         </CenteredFullPageFlexContainer>
       </div>
+      <div className="fixed flex flex-row justify-center items-center top-0 -z-10 w-screen h-screen">
+        <img src={spiro} className="min-w-spiro-min-width w-full opacity-20 md:opacity-5 hue-rotate-90 brightness-50 animate-spin-very-very-very-slow"/>
+      </div>
+      
     </div>
   )
 }

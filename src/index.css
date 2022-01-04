@@ -43,7 +43,7 @@
 
   h3 {
     font-family: 'IBM Plex Sans', sans-serif;
-    @apply text-md sm:text-lg 2xl:text-xl
+    @apply text-base sm:text-lg 2xl:text-xl
   }
 }
 

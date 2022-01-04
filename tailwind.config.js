@@ -12,9 +12,13 @@ module.exports = {
         "karkat-blood-red": 'rgb(255,0,0)',
         "brighter-red": 'rgb(255,70,70)',
       },
+      opacity: {
+        '5': '0.05',
+      },
       width: {
         '400px': '400px',
         '900px': '900px',
+        '1800px': '1800px',
       },
       height: {
         '112': '28rem',
@@ -34,6 +38,9 @@ module.exports = {
         '2xs': '280px',
         'yuge': '1700px',
       },
+      minWidth: {
+        'spiro-min-width': '700px',
+      },
       gridTemplateRows: {
         // Simple 8 row grid
         '7': 'repeat(7, minmax(0, 1fr))',
@@ -43,6 +50,9 @@ module.exports = {
       },
       dropShadow: {
         'raid-icon': '2px 3px 1px rgba(255, 0, 0, 0.3)',
+      },
+      animation: {
+        'spin-very-very-very-slow': 'spin 120s linear infinite',
       }
     },
     screens: {
