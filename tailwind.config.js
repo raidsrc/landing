@@ -52,9 +52,15 @@ module.exports = {
         'raid-icon': '2px 3px 1px rgba(255, 0, 0, 0.3)',
       },
       animation: {
-        'slow-spin-spirograph': 'spin 240s linear infinite',
-        'med-spin-spirograph': 'spin 120s linear infinite',
-      }
+        'slow-spin-spirograph': 'spinCounterclockwise 240s linear infinite',
+        'med-spin-spirograph': 'spinCounterclockwise 120s linear infinite',
+      },
+      keyframes: {
+        spinCounterclockwise: {
+          'from' : {transform: 'rotate(0deg)'},
+          'to': {transform: 'rotate(-360deg)'}
+        }
+      },
     },
     screens: {
       'puny-ass-screen': '360px',

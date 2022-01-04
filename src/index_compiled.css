@@ -588,32 +588,33 @@ h3 {
   max-width: 280px;
 }
 
-@-webkit-keyframes spin{
+.max-w-yuge{
+  max-width: 1700px;
+}
+
+@-webkit-keyframes spinCounterclockwise{
+  from{
+    transform: rotate(0deg);
+  }
+
   to{
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 }
 
-@keyframes spin{
-  to{
-    transform: rotate(360deg);
+@keyframes spinCounterclockwise{
+  from{
+    transform: rotate(0deg);
   }
-}
 
-.animate-slow-spin-spirograph{
-  -webkit-animation: spin 240s linear infinite;
-          animation: spin 240s linear infinite;
-}
-
-@keyframes spin{
   to{
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 }
 
 .animate-med-spin-spirograph{
-  -webkit-animation: spin 120s linear infinite;
-          animation: spin 120s linear infinite;
+  -webkit-animation: spinCounterclockwise 120s linear infinite;
+          animation: spinCounterclockwise 120s linear infinite;
 }
 
 .list-inside{
@@ -741,8 +742,8 @@ h3 {
           text-decoration-line: underline;
 }
 
-.opacity-20{
-  opacity: 0.2;
+.opacity-10{
+  opacity: 0.1;
 }
 
 .outline{
@@ -875,21 +876,29 @@ h3 {
     width: 10rem;
   }
 
-  @-webkit-keyframes spin{
+  @-webkit-keyframes spinCounterclockwise{
+    from{
+      transform: rotate(0deg);
+    }
+
     to{
-      transform: rotate(360deg);
+      transform: rotate(-360deg);
     }
   }
 
-  @keyframes spin{
+  @keyframes spinCounterclockwise{
+    from{
+      transform: rotate(0deg);
+    }
+
     to{
-      transform: rotate(360deg);
+      transform: rotate(-360deg);
     }
   }
 
   .md\:animate-slow-spin-spirograph{
-    -webkit-animation: spin 240s linear infinite;
-            animation: spin 240s linear infinite;
+    -webkit-animation: spinCounterclockwise 240s linear infinite;
+            animation: spinCounterclockwise 240s linear infinite;
   }
 
   .md\:py-3{

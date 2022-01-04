@@ -68,7 +68,7 @@ function PrimaryLandingPage(props) {
       </div>
       <div className="flex flex-row justify-center pb-6">
         <h2 className="text-white mild-text-shadow-left-down text-center">
-          Raid  //  Bite Me  //  Ray Louis
+          Raid // Rude Custard // Ray Louis 
         </h2>
       </div>
       {links.map(({ name, href }) => (
@@ -152,7 +152,7 @@ function App(props) {
         </CenteredFullPageFlexContainer>
       </div>
       <div className="fixed flex flex-row justify-center items-center top-0 -z-10 w-screen h-screen">
-        <img src={spiro} className="min-w-spiro-min-width w-full opacity-20 md:opacity-5 hue-rotate-90 brightness-50 animate-med-spin-spirograph md:animate-slow-spin-spirograph" />
+        <img src={spiro} className="min-w-spiro-min-width w-full max-w-yuge opacity-10 md:opacity-5 hue-rotate-90 brightness-50 animate-med-spin-spirograph md:animate-slow-spin-spirograph" />
       </div>
 
     </div>
