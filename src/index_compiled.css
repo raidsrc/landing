@@ -600,7 +600,18 @@ h3 {
   }
 }
 
-.animate-spin-very-very-very-slow{
+.animate-slow-spin-spirograph{
+  -webkit-animation: spin 240s linear infinite;
+          animation: spin 240s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.animate-med-spin-spirograph{
   -webkit-animation: spin 120s linear infinite;
           animation: spin 120s linear infinite;
 }
@@ -728,14 +739,6 @@ h3 {
 .underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
-}
-
-.opacity-10{
-  opacity: 0.1;
-}
-
-.opacity-5{
-  opacity: 0.05;
 }
 
 .opacity-20{
@@ -870,6 +873,23 @@ h3 {
 
   .md\:w-40{
     width: 10rem;
+  }
+
+  @-webkit-keyframes spin{
+    to{
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin{
+    to{
+      transform: rotate(360deg);
+    }
+  }
+
+  .md\:animate-slow-spin-spirograph{
+    -webkit-animation: spin 240s linear infinite;
+            animation: spin 240s linear infinite;
   }
 
   .md\:py-3{

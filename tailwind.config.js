@@ -52,7 +52,8 @@ module.exports = {
         'raid-icon': '2px 3px 1px rgba(255, 0, 0, 0.3)',
       },
       animation: {
-        'spin-very-very-very-slow': 'spin 120s linear infinite',
+        'slow-spin-spirograph': 'spin 240s linear infinite',
+        'med-spin-spirograph': 'spin 120s linear infinite',
       }
     },
     screens: {
