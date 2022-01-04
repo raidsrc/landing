@@ -68,7 +68,7 @@ function PrimaryLandingPage(props) {
       </div>
       <div className="flex flex-row justify-center pb-6">
         <h2 className="text-white mild-text-shadow-left-down text-center">
-          Raid // Rude Custard // Ray Louis 
+          Raid // Bite Me // Ray Louis 
         </h2>
       </div>
       {links.map(({ name, href }) => (
