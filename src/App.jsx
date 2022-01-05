@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import me2021dec from "./me_2021_dec.jpeg"
+import me2021dec from "./me_2021_dec (Large).jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
 import { CSSTransition } from "react-transition-group"
