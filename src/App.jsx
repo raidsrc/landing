@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import me2021dec from "./me_2021_dec.jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
@@ -88,12 +88,27 @@ function PrimaryLandingPage(props) {
 
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
+  const [scrolledDown, setScrolledDown] = useState(false)
+
+  function trackScrolling() {
+    console.log("scrolled")
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", trackScrolling)
+    return () => {
+      window.removeEventListener("scroll", trackScrolling)
+      console.log("removed scroll event listener")
+    }
+  }, [])
+
   return (
     <div>
       {/* this here below is the back button i decided against  */}
-      {/* <div className="fixed left-7 top-6 md:left-auto md:top-auto">
+      {/* <div className="fixed left-7 top-6 md:left-auto md:top-auto" >
         <button className="outline outline-1 hover:opacity-100 hover:outline-white hover:ease-in duration-150 active:opacity-80" onClick={() => setShowSupPage(false)}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)" viewBox="-3 -3 30 30"><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
+            viewBox="0 0 24 24" className="p-2 "><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
             </path></svg>
         </button>
       </div> */}
@@ -104,13 +119,13 @@ function SupPage(props) {
                 md:w-4/12 
                 lg:w-2/12" />
       </div>
-      <div className="flex flex-row justify-center py-6">
+      <div className="flex flex-row justify-center py-6" >
         <div className="text-sm sm:text-base w-11/12 md:w-8/12 lg:w-6/12 space-y-6">
           <p>
             You probably found your way here from my YouTube channel. Or perhaps you got here from my Twitter. Or&nbsp;<span className="italic">maybe&nbsp;</span>even from some music provider. Unlikely, as Distrokid has been giving me trouble lately. Whatever it may be, I'm glad you're here.
           </p>
           <p>
-            Let me give myself a quick introduction. I'm Ray! I upload YouTube videos under the alias <span className="text-gray-100">Raid</span>. I make music under the name <span className="text-gray-100">Rude Custard</span>. All over the rest of the internet, I go by <span className="text-gray-100">raidsrc</span>. I'm known mostly for my YouTube channel, where I've been uploading since I was 15. I do a lot of music stuff on my channel. Covers, rearrangements, original compositions, and tutorials, mainly. I've made a lot of stuff related to the media I've enjoyed, like <span className="text-gray-100">Homestuck</span> and <span className="text-gray-100">Fullmetal Alchemist: Brotherhood</span>. I like video editing too. I've made a bunch of videos about a whole bunch of things. Some of them for school projects, some of them for fun. A couple of my videos on <span className="text-gray-100">Super Smash Bros Melee</span>, one of my old hobbies, have been enthusiastically received by community members.
+            Let me give myself a quick introduction. I'm Ray! I upload YouTube videos under the alias <span className="text-gray-100">Raid</span>. I make music under the name <span className="text-gray-100">Rude Custard</span>. All over the rest of the internet, I go by <span className="text-gray-100">raidsrc</span>. At this point I'm known mostly for my YouTube channel, where I've been uploading since I was 15. I do a lot of music stuff on my channel. Covers, rearrangements, original compositions, and tutorials, mainly. I've made a lot of stuff related to the media I've enjoyed, like <span className="text-gray-100">Homestuck</span> and <span className="text-gray-100">Fullmetal Alchemist: Brotherhood</span>. I like video editing too. I've made a bunch of videos about a whole bunch of things. Some of them for school projects, some of them for fun. A couple of my videos on <span className="text-gray-100">Super Smash Bros Melee</span>, one of my old hobbies, have been enthusiastically received by community members.
           </p>
           <p>
             Right now, I'm an undergraduate student at the <span className="text-gray-100">University of California Davis</span>. I'm writing this on January 1st, 2022. I'm going to graduate this year if all goes according to plan! I'm majoring in <span className="text-gray-100">Biochemistry and Molecular Biology</span> and minoring in <span className="text-gray-100">Computer Science</span>. I don't like school very much at all. I'm really not cut out for studying. I've never been the most studious person, even as a little kid when everyone fooled me into thinking I was special. But I'm almost done, so I figure I've just gotta grin and bear it for the time being. Then snatch my degree and I'm outta there.
@@ -149,7 +164,7 @@ function SupPage(props) {
 
 function App(props) {
   const [showSupPage, setShowSupPage] = useState(false)
-
+  
   return (
     <div>
       <div className="pb-20 z-20">
