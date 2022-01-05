@@ -4,15 +4,13 @@ import React, { useEffect, useRef, useState } from "react"
 
 function BackButton(props) {
   const imgRef = props.imgRef
+  const backButtonRef = useRef(null)
   const setShowSupPage = props.setShowSupPage
   const [backButtonTranslucency, setBackButtonTranslucency] = useState("opacity-100")
   const [backArrowTransparency, setBackArrowTransparency] = useState("opacity-100")
   const [triggerBackButtonAnimation, setTriggerBackButtonAnimation] = useState(false)
   const [backButtonWidth, setBackButtonWidth] = useState("80")
   const [backButtonHeight, setBackButtonHeight] = useState("60")
-  const [mouseOnBackButton, setMouseOnBackButton] = useState(false)
-  const backButtonRef = useRef(null)
-
 
   function trackScrollingResizing() { // this function fires every time there's a scroll or a resize.
     // if the window is small, shrink the button. else if the window is big, enlarge the button.
@@ -26,11 +24,6 @@ function BackButton(props) {
     // i need to make it so that if the mouse has entered and we've scrolled below the image, we make the button opaque. and that it stays opaque even if we keep scrolling while the mouse has entered. how the fuck?
     // ok. 
 
-    // when back button is mouse entered, set mouseOnBackButton to true.
-    // when back button is mouse leaved, set it to false. 
-    // if mouse is on back button and if we are below the image, arrow opacity is 100. have this first so it takes precedence.
-    // else if mouse is off back button and we are below the image, arrow opacity is 10 with timeout 300
-
     // let's try this again
     // if scrolled below image 
     //     if mouse on button, no animate
@@ -39,43 +32,24 @@ function BackButton(props) {
     //     whether mouse is on the button or not, do a fade back in 
     // i think this should work.
     if (window.innerWidth < 768) { // if window is small (medium?)
-
       if (window.scrollY > imgRef.current.height - 50) { // if scrolled below image
-        if (mouseOnBackButton) {
-          console.log("NOPE")
-        } else if (!mouseOnBackButton) {
-          setTimeout(() => { setBackButtonTranslucency("opacity-20") }, 400)
-          setTimeout(() => { setBackArrowTransparency("opacity-10") }, 400)
-        }
+        setTimeout(() => { setBackButtonTranslucency("opacity-20") }, 5)
+        setTimeout(() => { setBackArrowTransparency("opacity-10") }, 5)
       } else if (window.scrollY < imgRef.current.height - 50) { // if scrolled above image
         setTriggerBackButtonAnimation(false)
-        setTimeout(() => { setBackButtonTranslucency("opacity-100") }, 400)
-        setTimeout(() => { setBackArrowTransparency("opacity-100") }, 400)
+        setTimeout(() => { setBackButtonTranslucency("opacity-100") }, 100)
+        setTimeout(() => { setBackArrowTransparency("opacity-100") }, 100)
       }
     }
   }
 
-  function whenBackButtonIsMouseEntered() {
-    if (window.scrollY > imgRef.current.height - 50 && window.innerWidth < 768) {
-      setMouseOnBackButton(true)
-    }
-  }
-  function whenBackButtonIsMouseLeaved() {
-    if (window.scrollY > imgRef.current.height - 50 && window.innerWidth < 768) {
-      setMouseOnBackButton(false)
-    }
-  }
-
   useEffect(() => {
+    trackScrollingResizing()
     window.addEventListener("scroll", trackScrollingResizing)
     window.addEventListener("resize", trackScrollingResizing)
-    backButtonRef.current.addEventListener("mouseenter", whenBackButtonIsMouseEntered)
-    backButtonRef.current.addEventListener("mouseleave", whenBackButtonIsMouseLeaved)
     return () => {
       window.removeEventListener("scroll", trackScrollingResizing)
       window.removeEventListener("resize", trackScrollingResizing)
-      backButtonRef.current.removeEventListener("mouseenter", whenBackButtonIsMouseEntered)
-      backButtonRef.current.removeEventListener("mouseleave", whenBackButtonIsMouseLeaved)
     }
   }, [])
 
