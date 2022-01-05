@@ -54,12 +54,17 @@ module.exports = {
       animation: {
         'slow-spin-spirograph': 'spinCounterclockwise 240s linear infinite',
         'med-spin-spirograph': 'spinCounterclockwise 120s linear infinite',
+        'back-arrow-enter': 'backArrowEnter 1s ease-in',
       },
       keyframes: {
         spinCounterclockwise: {
           'from' : {transform: 'rotate(0deg)'},
           'to': {transform: 'rotate(-360deg)'}
-        }
+        },
+        backArrowEnter: {
+          'from' : {'opacity': "0"},
+          'to': {'opacity': "100"}
+        },
       },
     },
     screens: {

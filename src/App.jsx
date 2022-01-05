@@ -3,6 +3,7 @@ import me2021dec from "./me_2021_dec.jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
 import { CSSTransition } from "react-transition-group"
+import BackButton from "./BackButton"
 
 function CenteredFullPageFlexContainer(props) {
   return (
@@ -88,55 +89,11 @@ function PrimaryLandingPage(props) {
 
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
-  const [backButtonTranslucency, setBackButtonTranslucency] = useState("opacity-100")
-  const [backArrowTransparency, setBackArrowTransparency] = useState("opacity-100")
-  const [triggerBackButtonAnimation, setTriggerBackButtonAnimation] = useState(false)
-  const [backButtonWidth, setBackButtonWidth] = useState("80")
-  const [backButtonHeight, setBackButtonHeight] = useState("60")
   const imgRef = useRef(null) // first time using a ref ever. a little confusing.
-
-  function trackScrollingAndResizing() { 
-    if (window.innerWidth < 600) {
-      setBackButtonWidth("50")
-      setBackButtonHeight("50")
-    } else if (window.innerWidth >= 600) {
-      setBackButtonWidth("80")
-      setBackButtonHeight("60")
-    }
-    if (window.scrollY > imgRef.current.height - 50 && window.innerWidth < 768) {
-      setTimeout(() => { setBackButtonTranslucency("opacity-20") }, 400)
-      setTimeout(() => { setBackArrowTransparency("opacity-10") }, 400)
-      setTriggerBackButtonAnimation(true)
-    } else {
-      setTimeout(() => { setBackButtonTranslucency("") }, 400)
-      setTimeout(() => { setBackArrowTransparency("") }, 400)
-      setTriggerBackButtonAnimation(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", trackScrollingAndResizing)
-    window.addEventListener("resize", trackScrollingAndResizing)
-    return () => {
-      window.removeEventListener("scroll", trackScrollingAndResizing)
-      window.removeEventListener("resize", trackScrollingAndResizing)
-    }
-  }, [window.innerWidth])
 
   return (
     <div>
-      <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="translucent-button">
-        <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency + " hover:opacity-100 duration-150 ease-in"} >
-          <button className="outline outline-1 hover:outline-white hover:ease-in duration-150 active:opacity-80 md:hover:opacity-100"
-            onClick={() => setShowSupPage(false)}>
-            <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="transparent-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width={backButtonWidth} height={backButtonHeight} stroke="white" strokeWidth={1.3} transform="rotate(180)"
-                viewBox="0 0 24 24" className={"p-2 " + backArrowTransparency + " hover:opacity-100 duration-150 hover:ease-in"}><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
-                </path></svg>
-            </CSSTransition>
-          </button>
-        </div>
-      </CSSTransition>
+      <BackButton imgRef={imgRef} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <img src={hairBlown} ref={imgRef} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 

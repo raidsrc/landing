@@ -27,3 +27,18 @@
   opacity: 1;
   transition: opacity 400ms;
 }
+
+.hover-arrow-enter {
+  opacity: 1;
+}
+.hover-arrow-enter-active {
+  opacity: 0.1;
+  transition: opacity 1000ms;
+}
+.hover-arrow-exit {
+  opacity: 0.1;
+}
+.hover-arrow-exit-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}

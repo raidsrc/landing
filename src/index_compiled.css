@@ -608,6 +608,10 @@ h3 {
   max-width: 1700px;
 }
 
+.shrink{
+  flex-shrink: 1;
+}
+
 .transform{
   transform: var(--tw-transform);
 }
@@ -821,6 +825,10 @@ h3 {
   transition-duration: 150ms;
 }
 
+.duration-300{
+  transition-duration: 300ms;
+}
+
 .ease-in{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
@@ -847,6 +855,31 @@ h3 {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
   color: black;
+}
+
+@-webkit-keyframes backArrowEnter{
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 100;
+  }
+}
+
+@keyframes backArrowEnter{
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 100;
+  }
+}
+
+.hover\:animate-back-arrow-enter:hover{
+  -webkit-animation: backArrowEnter 1s ease-in;
+          animation: backArrowEnter 1s ease-in;
 }
 
 .hover\:border-gray-800:hover{
@@ -978,10 +1011,6 @@ h3 {
 
   .md\:opacity-5{
     opacity: 0.05;
-  }
-
-  .md\:hover\:opacity-100:hover{
-    opacity: 1;
   }
 }
 
