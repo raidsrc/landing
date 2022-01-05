@@ -88,13 +88,16 @@ function PrimaryLandingPage(props) {
 
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
-  const [fadeBackButton, setFadeBackButton] = useState("")
+  const [backButtonTranslucency, setBackButtonTranslucency] = useState("opacity-100")
+  const [triggerBackButtonAnimation, setTriggerBackButtonAnimation] = useState(false)
 
   function trackScrolling() {
     if (window.scrollY > 200) {
-      setFadeBackButton("opacity-20")
+      setTimeout(() => {setBackButtonTranslucency("opacity-20")} , 200)
+      setTriggerBackButtonAnimation(true)
     } else {
-      setFadeBackButton("opacity-100")
+      setTimeout(() => {setBackButtonTranslucency("opacity-100")} , 200)
+      setTriggerBackButtonAnimation(false)
     }
   }
 
@@ -108,13 +111,15 @@ function SupPage(props) {
   return (
     <div>
       {/* this here below is the back button i decided against  */}
-      <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + fadeBackButton} >
-        <button className="outline outline-1 hover:opacity-100 hover:outline-white hover:ease-in duration-150 active:opacity-80" onClick={() => setShowSupPage(false)}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
-            viewBox="0 0 24 24" className="p-2 "><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
-            </path></svg>
-        </button>
-      </div>
+    <CSSTransition timeout={200} in={triggerBackButtonAnimation} classNames="translucent-button">
+        <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency} >
+          <button className="outline outline-1 hover:opacity-100 hover:outline-white hover:ease-in duration-150 active:opacity-80" onClick={() => setShowSupPage(false)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
+              viewBox="0 0 24 24" className="p-2 "><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
+              </path></svg>
+          </button>
+        </div>
+      </CSSTransition>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <img src={hairBlown} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 
@@ -167,7 +172,7 @@ function SupPage(props) {
 
 function App(props) {
   const [showSupPage, setShowSupPage] = useState(false)
-  
+
   return (
     <div>
       <div className="pb-20 z-20">
