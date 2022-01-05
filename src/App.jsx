@@ -91,37 +91,46 @@ function SupPage(props) {
   const [backButtonTranslucency, setBackButtonTranslucency] = useState("opacity-100")
   const [backArrowTransparency, setBackArrowTransparency] = useState("opacity-100")
   const [triggerBackButtonAnimation, setTriggerBackButtonAnimation] = useState(false)
+  const [backButtonWidth, setBackButtonWidth] = useState("80")
+  const [backButtonHeight, setBackButtonHeight] = useState("60")
   const imgRef = useRef(null) // first time using a ref ever. a little confusing.
 
-  function trackScrolling() {
+  function trackScrollingAndResizing() { 
+    if (window.innerWidth < 600) {
+      setBackButtonWidth("50")
+      setBackButtonHeight("50")
+    } else if (window.innerWidth >= 600) {
+      setBackButtonWidth("80")
+      setBackButtonHeight("60")
+    }
     if (window.scrollY > imgRef.current.height - 50 && window.innerWidth < 768) {
       setTimeout(() => { setBackButtonTranslucency("opacity-20") }, 400)
       setTimeout(() => { setBackArrowTransparency("opacity-10") }, 400)
       setTriggerBackButtonAnimation(true)
     } else {
-      setTimeout(() => { setBackButtonTranslucency("opacity-100") }, 400)
-      setTimeout(() => { setBackArrowTransparency("opacity-100") }, 400)
+      setTimeout(() => { setBackButtonTranslucency("") }, 400)
+      setTimeout(() => { setBackArrowTransparency("") }, 400)
       setTriggerBackButtonAnimation(false)
     }
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", trackScrolling)
-    window.addEventListener("resize", trackScrolling)
+    window.addEventListener("scroll", trackScrollingAndResizing)
+    window.addEventListener("resize", trackScrollingAndResizing)
     return () => {
-      window.removeEventListener("scroll", trackScrolling)
-      window.removeEventListener("resize", trackScrolling)
+      window.removeEventListener("scroll", trackScrollingAndResizing)
+      window.removeEventListener("resize", trackScrollingAndResizing)
     }
   }, [window.innerWidth])
 
   return (
     <div>
       <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="translucent-button">
-        <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency} >
-          <button className="outline outline-1 hover:outline-white hover:ease-in duration-150 active:opacity-80 md:hover:opacity-100" 
-          onClick={() => setShowSupPage(false)}>
+        <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency + " hover:opacity-100 duration-150 ease-in"} >
+          <button className="outline outline-1 hover:outline-white hover:ease-in duration-150 active:opacity-80 md:hover:opacity-100"
+            onClick={() => setShowSupPage(false)}>
             <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="transparent-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
+              <svg xmlns="http://www.w3.org/2000/svg" width={backButtonWidth} height={backButtonHeight} stroke="white" strokeWidth={1.3} transform="rotate(180)"
                 viewBox="0 0 24 24" className={"p-2 " + backArrowTransparency + " hover:opacity-100 duration-150 hover:ease-in"}><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
                 </path></svg>
             </CSSTransition>
