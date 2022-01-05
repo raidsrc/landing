@@ -1,14 +1,29 @@
 .translucent-button-enter {
-    opacity: 1;
-  }
-  .translucent-button-enter-active {
-    opacity: 0.2;
-    transition: opacity 200ms;
-  }
-  .translucent-button-exit {
-    opacity: 0.2;
-  }
-  .translucent-button-exit-active {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
+  opacity: 1;
+}
+.translucent-button-enter-active {
+  opacity: 0.2;
+  transition: opacity 400ms;
+}
+.translucent-button-exit {
+  opacity: 0.2;
+}
+.translucent-button-exit-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.transparent-arrow-enter {
+  opacity: 1;
+}
+.transparent-arrow-enter-active {
+  opacity: 0.1;
+  transition: opacity 400ms;
+}
+.transparent-arrow-exit {
+  opacity: 0.1;
+}
+.transparent-arrow-exit-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import me2021dec from "./me_2021_dec.jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
@@ -89,39 +89,47 @@ function PrimaryLandingPage(props) {
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
   const [backButtonTranslucency, setBackButtonTranslucency] = useState("opacity-100")
+  const [backArrowTranslucency, setBackArrowTranslucency] = useState("opacity-100")
   const [triggerBackButtonAnimation, setTriggerBackButtonAnimation] = useState(false)
+  const imgRef = useRef(null) // first time using a ref ever. confusing, a little. refs are 
 
   function trackScrolling() {
-    if (window.scrollY > 200) {
-      setTimeout(() => {setBackButtonTranslucency("opacity-20")} , 200)
+    if (window.scrollY > imgRef.current.height - 50 && window.innerWidth < 768) {
+      setTimeout(() => { setBackButtonTranslucency("opacity-20") }, 400)
+      setTimeout(() => { setBackArrowTranslucency("opacity-10") }, 400)
       setTriggerBackButtonAnimation(true)
     } else {
-      setTimeout(() => {setBackButtonTranslucency("opacity-100")} , 200)
+      setTimeout(() => { setBackButtonTranslucency("opacity-100") }, 400)
+      setTimeout(() => { setBackArrowTranslucency("opacity-100") }, 400)
       setTriggerBackButtonAnimation(false)
     }
   }
 
   useEffect(() => {
     window.addEventListener("scroll", trackScrolling)
+    window.addEventListener("resize", trackScrolling)
     return () => {
       window.removeEventListener("scroll", trackScrolling)
+      window.removeEventListener("resize", trackScrolling)
     }
-  }, [])
+  }, [window.innerWidth])
 
   return (
     <div>
       {/* this here below is the back button i decided against  */}
-    <CSSTransition timeout={200} in={triggerBackButtonAnimation} classNames="translucent-button">
+      <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="translucent-button">
         <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency} >
           <button className="outline outline-1 hover:opacity-100 hover:outline-white hover:ease-in duration-150 active:opacity-80" onClick={() => setShowSupPage(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
-              viewBox="0 0 24 24" className="p-2 "><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
-              </path></svg>
+            <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="transparent-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
+                viewBox="0 0 24 24" className={"p-2 " + backArrowTranslucency}><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
+                </path></svg>
+            </CSSTransition>
           </button>
         </div>
       </CSSTransition>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <img src={hairBlown} className="rounded-full w-7/12 
+        <img src={hairBlown} ref={imgRef} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 
                 sm:w-5/12 
                 md:w-4/12 
@@ -172,6 +180,9 @@ function SupPage(props) {
 
 function App(props) {
   const [showSupPage, setShowSupPage] = useState(false)
+  const [heightOfImg, setHeightOfImg] = useState(null)
+
+
 
   return (
     <div>

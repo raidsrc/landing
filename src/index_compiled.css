@@ -653,6 +653,10 @@ h3 {
           animation: spinCounterclockwise 120s linear infinite;
 }
 
+.resize{
+  resize: both;
+}
+
 .list-inside{
   list-style-position: inside;
 }
