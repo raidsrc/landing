@@ -78,7 +78,7 @@ function PrimaryLandingPage(props) {
       ))}
 
       <div className="flex flex-row justify-center py-12 mt-3">
-        <button onClick={() => { setShowSupPage(true); scroll(0, 0) }} className="inline-red-bg-link text-white border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
+        <button onClick={() => { setShowSupPage(true); scroll(0, 0) }} className="text-white border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
           Yo.
         </button>
       </div>
