@@ -884,6 +884,18 @@ h3 {
   transition-duration: 700ms;
 }
 
+.duration-500{
+  transition-duration: 500ms;
+}
+
+.duration-1000{
+  transition-duration: 1000ms;
+}
+
+.ease-in{
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
 .open-sans {
   font-family: 'Open Sans', sans-serif;
 }
@@ -934,6 +946,10 @@ h3 {
   opacity: 0.6;
 }
 
+.hover\:opacity-50:hover{
+  opacity: 0.5;
+}
+
 .hover\:outline-white:hover{
   outline-color: #fff;
 }
@@ -959,6 +975,10 @@ h3 {
 
 .hover\:ease-in:hover{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.hover\:ease-in-out:hover{
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .active\:opacity-60:active{
@@ -1064,6 +1084,10 @@ h3 {
 
   .md\:opacity-5{
     opacity: 0.05;
+  }
+
+  .md\:hover\:opacity-100:hover{
+    opacity: 1;
   }
 }
 
