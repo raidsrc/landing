@@ -536,16 +536,16 @@ h3 {
   position: fixed;
 }
 
+.top-0{
+  top: 0px;
+}
+
 .left-7{
   left: 1.75rem;
 }
 
 .top-6{
   top: 1.5rem;
-}
-
-.top-0{
-  top: 0px;
 }
 
 .z-20{
@@ -779,16 +779,16 @@ h3 {
           text-decoration-line: underline;
 }
 
+.opacity-10{
+  opacity: 0.1;
+}
+
 .opacity-100{
   opacity: 1;
 }
 
 .opacity-20{
   opacity: 0.2;
-}
-
-.opacity-10{
-  opacity: 0.1;
 }
 
 .outline{
@@ -855,31 +855,6 @@ h3 {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
   color: black;
-}
-
-@-webkit-keyframes backArrowEnter{
-  from{
-    opacity: 0;
-  }
-
-  to{
-    opacity: 100;
-  }
-}
-
-@keyframes backArrowEnter{
-  from{
-    opacity: 0;
-  }
-
-  to{
-    opacity: 100;
-  }
-}
-
-.hover\:animate-back-arrow-enter:hover{
-  -webkit-animation: backArrowEnter 1s ease-in;
-          animation: backArrowEnter 1s ease-in;
 }
 
 .hover\:border-gray-800:hover{

@@ -93,7 +93,7 @@ function SupPage(props) {
 
   return (
     <div>
-      <BackButton imgRef={imgRef} />
+      <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <img src={hairBlown} ref={imgRef} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 
