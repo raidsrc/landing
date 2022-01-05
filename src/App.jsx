@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import me2021dec from "./me_2021_dec.jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
-
+import { CSSTransition } from "react-transition-group"
 
 function CenteredFullPageFlexContainer(props) {
   return (
@@ -88,30 +88,33 @@ function PrimaryLandingPage(props) {
 
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
-  const [scrolledDown, setScrolledDown] = useState(false)
+  const [fadeBackButton, setFadeBackButton] = useState("")
 
   function trackScrolling() {
-    console.log("scrolled")
+    if (window.scrollY > 200) {
+      setFadeBackButton("opacity-20")
+    } else {
+      setFadeBackButton("opacity-100")
+    }
   }
 
   useEffect(() => {
     window.addEventListener("scroll", trackScrolling)
     return () => {
       window.removeEventListener("scroll", trackScrolling)
-      console.log("removed scroll event listener")
     }
   }, [])
 
   return (
     <div>
       {/* this here below is the back button i decided against  */}
-      {/* <div className="fixed left-7 top-6 md:left-auto md:top-auto" >
+      <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + fadeBackButton} >
         <button className="outline outline-1 hover:opacity-100 hover:outline-white hover:ease-in duration-150 active:opacity-80" onClick={() => setShowSupPage(false)}>
           <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" stroke="white" strokeWidth={1.3} transform="rotate(180)"
             viewBox="0 0 24 24" className="p-2 "><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
             </path></svg>
         </button>
-      </div> */}
+      </div>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <img src={hairBlown} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 
