@@ -61,7 +61,7 @@ function BackButton(props) {
         <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency + " hover:opacity-100 duration-300 ease-in"} ref={backButtonRef}>
           {/* the only animation happening with this button is the outline color changing */}
           <button className="outline outline-1 hover:outline-white hover:ease-in duration-150"
-            onClick={() => setShowSupPage(false)}>
+            onClick={() => { setShowSupPage(false); scroll(0, 0) }}>
 
             <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="transparent-arrow">
               {/* the actual arrow is wrapped in its own CSSTransition because it needs to become almost completely transparent */}

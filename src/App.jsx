@@ -44,9 +44,10 @@ function PrimaryLandingPage(props) {
     { name: "Spotify (soon!)", href: "https://spotify.com" },
     { name: "Apple Music (soon!)", href: "https://apple.com" },
     { name: "Twitter", href: "https://twitter.com/raidsrc" },
+    { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
+    { name: "BandCamp", href: "https://rudecustard.bandcamp.com" },
     { name: "GitHub, Personal", href: "https://github.com/raidsrc" },
     { name: "GitHub, School", href: "https://github.com/rsrchen" },
-    { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
   ]
   return (
     <div>
@@ -146,9 +147,6 @@ function SupPage(props) {
 
 function App(props) {
   const [showSupPage, setShowSupPage] = useState(false)
-  const [heightOfImg, setHeightOfImg] = useState(null)
-
-
 
   return (
     <div>
