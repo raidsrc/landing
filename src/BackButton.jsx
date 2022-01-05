@@ -33,12 +33,12 @@ function BackButton(props) {
     // i think this should work.
     if (window.innerWidth < 768) { // if window is small (medium?)
       if (window.scrollY > imgRef.current.height - 50) { // if scrolled below image
-        setTimeout(() => { setBackButtonTranslucency("opacity-20") }, 5)
-        setTimeout(() => { setBackArrowTransparency("opacity-10") }, 5)
+        setBackButtonTranslucency("opacity-20")
+        setBackArrowTransparency("opacity-10")
       } else if (window.scrollY < imgRef.current.height - 50) { // if scrolled above image
         setTriggerBackButtonAnimation(false)
-        setTimeout(() => { setBackButtonTranslucency("opacity-100") }, 100)
-        setTimeout(() => { setBackArrowTransparency("opacity-100") }, 100)
+        setBackButtonTranslucency("opacity-100")
+        setBackArrowTransparency("opacity-100")
       }
     }
   }
