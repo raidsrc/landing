@@ -103,7 +103,7 @@ function SupPage(props) {
                 lg:w-2/12" />
       </div>
       <div className="flex flex-row justify-center py-6" >
-        <div className="text-sm sm:text-base w-11/12 md:w-8/12 lg:w-6/12 space-y-6">
+        <div className="text-base w-11/12 md:w-8/12 lg:w-6/12 space-y-6">
           <p>
             You probably found your way here from my YouTube channel. Or perhaps you got here from my Twitter. Or&nbsp;<span className="italic">maybe&nbsp;</span>even from some music provider. Unlikely, as Distrokid has been giving me trouble lately. Whatever it may be, I'm glad you're here.
           </p>

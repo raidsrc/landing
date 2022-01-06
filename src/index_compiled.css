@@ -760,6 +760,11 @@ h3 {
   line-height: 1.25rem;
 }
 
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .italic{
   font-style: italic;
 }
