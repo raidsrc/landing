@@ -45,7 +45,7 @@ function PrimaryLandingPage(props) {
     { name: "Apple Music (soon!)", href: "https://apple.com" },
     { name: "Twitter", href: "https://twitter.com/raidsrc" },
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
-    { name: "BandCamp", href: "https://rudecustard.bandcamp.com" },
+    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com" },
     { name: "GitHub, Personal", href: "https://github.com/raidsrc" },
     { name: "GitHub, School", href: "https://github.com/rsrchen" },
   ]
@@ -73,6 +73,7 @@ function PrimaryLandingPage(props) {
           Raid // Rude Custard // Ray Louis
         </h2>
       </div>
+      {/* insert "biologist, programmer, musician, etc. maybe????" */}
       {links.map(({ name, href }) => (
         <LandingPageLinkButton href={href}>
           {name}
