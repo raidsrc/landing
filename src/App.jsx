@@ -4,7 +4,7 @@ import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
 import BackButton from "./BackButton"
 import iconAmazonMusic from "./icon-amazon-music.png"
-import iconApple from "./icon-apple.png"
+import iconAppleMusic from "./icon-apple-music.png"
 import iconBandcamp from "./icon-bandcamp.png"
 import iconGitHub from "./icon-github.png"
 import iconSoundCloud from "./icon-soundcloud.png"
@@ -45,17 +45,17 @@ function LandingPageLinkButton(props) {
   )
 }
 
-function PrimaryLandingPage(props) {
+function PrimaryLandingPage(props) { // TODO: use react-spring to animate a dropdown like the mobile stuff i've made page on the main site. contain all the music streaming services in it. have all the icons for all the streaming services on that one button. click the button and then all the other buttons fall down. include spotify, apple music, amazon music, pandora, deezer, netease, also include a caption that says "if your favorite streaming service wasn't listed, just search up rude custard and i'm sure i'll appear!" 
   const setShowSupPage = props.setShowSupPage
   const links = [
     { name: "Website", href: "https://raidsrc.me", icon: favicon },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube },
+    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp },
     { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify },
-    { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconApple },
+    { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic },
     { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic },
     { name: "Twitter", href: "https://twitter.com/raidsrc", icon: iconTwitter },
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud },
-    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp },
     { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub },
     { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub },
   ]
