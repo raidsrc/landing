@@ -53,11 +53,11 @@ function PrimaryLandingPage(props) {
     { name: "YouTube", href: "https://youtube.com/c/raidsrc" },
     { name: "Bandcamp", href: "https://rudecustard.bandcamp.com" },
     {
-      name: "Subscription Streaming Services", contents: {
-        spotify: { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs" },
-        apple: { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147" },
-        amazon: { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard " },
-      }
+      subscriptionStreamingServices: [
+        { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs" },
+        { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147" },
+        { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard " },
+      ]
     },
     { name: "Twitter", href: "https://twitter.com/raidsrc" },
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
@@ -89,7 +89,7 @@ function PrimaryLandingPage(props) {
         </h2>
       </div>
       {links.map(({ name, href, streamingService }) => {
-        if (!streamingService) {
+        if (name != "Subscription Streaming Services") {
           return (
             <LandingPageLinkButton href={href}>
               {name}
@@ -98,10 +98,8 @@ function PrimaryLandingPage(props) {
         } else {
           return (
             <StreamingServiceContainerButton>
-              {links.filter(link => link.streamingService).map(({ name, href }) => (
-                <LandingPageLinkButton href={href}>
-                  {name}
-                </LandingPageLinkButton>
+              {links.filter(link => link.subscriptionStreamingServices)[0].subscriptionStreamingServices.map(({ name, href }) => (
+                "sup"
               ))}
             </StreamingServiceContainerButton>
           )
