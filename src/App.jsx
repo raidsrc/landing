@@ -36,16 +36,31 @@ function LandingPageLinkButton(props) {
   )
 }
 
+function StreamingServiceContainerButton(props) {
+  return (
+    <div>
+      <div>yoooooooooooooooooooooooooo</div>
+      <div>{props.children}</div>
+      <div>ok</div>
+    </div>
+  )
+}
+
 function PrimaryLandingPage(props) {
   const setShowSupPage = props.setShowSupPage
-  const links = [
+  const links = [ // TODO: add icons to each button, also make a dropdown menu that holds all the music streaming services delivered to w/ distrokid together in one single button that opens when you click. 
     { name: "Website", href: "https://raidsrc.me" },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc" },
-    { name: "Spotify (soon!)", href: "https://spotify.com" },
-    { name: "Apple Music (soon!)", href: "https://apple.com" },
+    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com" },
+    {
+      name: "Subscription Streaming Services", contents: {
+        spotify: { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs" },
+        apple: { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147" },
+        amazon: { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard " },
+      }
+    },
     { name: "Twitter", href: "https://twitter.com/raidsrc" },
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
-    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com" },
     { name: "GitHub, Personal", href: "https://github.com/raidsrc" },
     { name: "GitHub, School", href: "https://github.com/rsrchen" },
   ]
@@ -73,12 +88,25 @@ function PrimaryLandingPage(props) {
           Raid // Rude Custard // Ray Louis
         </h2>
       </div>
-      {/* insert "biologist, programmer, musician, etc. maybe????" */}
-      {links.map(({ name, href }) => (
-        <LandingPageLinkButton href={href}>
-          {name}
-        </LandingPageLinkButton>
-      ))}
+      {links.map(({ name, href, streamingService }) => {
+        if (!streamingService) {
+          return (
+            <LandingPageLinkButton href={href}>
+              {name}
+            </LandingPageLinkButton>
+          )
+        } else {
+          return (
+            <StreamingServiceContainerButton>
+              {links.filter(link => link.streamingService).map(({ name, href }) => (
+                <LandingPageLinkButton href={href}>
+                  {name}
+                </LandingPageLinkButton>
+              ))}
+            </StreamingServiceContainerButton>
+          )
+        }
+      })}
 
       <div className="flex flex-row justify-center py-12 mt-3">
         <button onClick={() => { setShowSupPage(true); scroll(0, 0) }} className="text-white border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
@@ -106,7 +134,7 @@ function SupPage(props) {
       <div className="flex flex-row justify-center py-6" >
         <div className="text-base w-11/12 md:w-8/12 lg:w-6/12 space-y-6">
           <p>
-            You probably found your way here from my YouTube channel. Or perhaps you got here from my Twitter. Or&nbsp;<span className="italic">maybe&nbsp;</span>even from some music provider. Unlikely, as Distrokid has been giving me trouble lately. Whatever it may be, I'm glad you're here.
+            You probably found your way here from my YouTube channel. Or perhaps you got here from my Twitter. Or&nbsp;<span className="italic">maybe&nbsp;</span>even from some music provider. Unlikely, as they've all been giving me a bit of trouble lately. Whatever it may be, I'm glad you're here.
           </p>
           <p>
             Let me give myself a quick introduction. I'm Ray! I upload YouTube videos under the alias <span className="text-gray-100">Raid</span>. I make music under the name <span className="text-gray-100">Rude Custard</span>. All over the rest of the internet, I go by <span className="text-gray-100">raidsrc</span>. At this point I'm known mostly for my YouTube channel, where I've been uploading since I was 15. I do a lot of music stuff on my channel. Covers, rearrangements, original compositions, and tutorials, mainly. I've made a lot of stuff related to the media I've enjoyed, like <span className="text-gray-100">Homestuck</span> and <span className="text-gray-100">Fullmetal Alchemist: Brotherhood</span>. I like video editing too. I've made a bunch of videos about a whole bunch of things. Some of them for school projects, some of them for fun. A couple of my videos on <span className="text-gray-100">Super Smash Bros Melee</span>, one of my old hobbies, have been enthusiastically received by community members.
