@@ -2,8 +2,16 @@ import React, { useEffect, useRef, useState } from "react"
 import me2021dec from "./me_2021_dec (Large).jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
-import { CSSTransition } from "react-transition-group"
 import BackButton from "./BackButton"
+import iconAmazonMusic from "./icon-amazon-music.png"
+import iconApple from "./icon-apple.png"
+import iconBandcamp from "./icon-bandcamp.png"
+import iconGitHub from "./icon-github.png"
+import iconSoundCloud from "./icon-soundcloud.png"
+import iconSpotify from "./icon-spotify.png"
+import iconTwitter from "./icon-twitter.png"
+import iconYouTube from "./icon-youtube.png"
+import favicon from "./favicon.ico"
 
 function CenteredFullPageFlexContainer(props) {
   return (
@@ -24,12 +32,13 @@ function NewTab(props) {
 }
 
 function LandingPageLinkButton(props) {
+  const icon = props.icon
   return (
     <div className="flex flex-row justify-center py-2">
       <a target="_blank" rel="noreferrer noopener" href={props.href}
         className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
         <button>
-          {props.children}
+          <div className="flex flex-row items-center space-x-3"><img src={icon} width={30}/><span>{props.children}</span></div>
         </button>
       </a>
     </div>
@@ -39,16 +48,16 @@ function LandingPageLinkButton(props) {
 function PrimaryLandingPage(props) {
   const setShowSupPage = props.setShowSupPage
   const links = [
-    { name: "Website", href: "https://raidsrc.me" },
-    { name: "YouTube", href: "https://youtube.com/c/raidsrc" },
-    { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs" },
-    { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147" },
-    { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard " },
-    { name: "Twitter", href: "https://twitter.com/raidsrc" },
-    { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
-    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com" },
-    { name: "GitHub, Personal", href: "https://github.com/raidsrc" },
-    { name: "GitHub, School", href: "https://github.com/rsrchen" },
+    { name: "Website", href: "https://raidsrc.me", icon: favicon },
+    { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube },
+    { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify },
+    { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconApple },
+    { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic },
+    { name: "Twitter", href: "https://twitter.com/raidsrc", icon: iconTwitter },
+    { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud },
+    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp },
+    { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub },
+    { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub },
   ]
   return (
     <div>
@@ -74,9 +83,8 @@ function PrimaryLandingPage(props) {
           Raid // Rude Custard // Ray Louis
         </h2>
       </div>
-      {/* insert "biologist, programmer, musician, etc. maybe????" */}
-      {links.map(({ name, href }) => (
-        <LandingPageLinkButton href={href}>
+      {links.map(({ name, href, icon }) => (
+        <LandingPageLinkButton href={href} icon={icon}>
           {name}
         </LandingPageLinkButton>
       ))}
