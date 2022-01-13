@@ -41,8 +41,9 @@ function PrimaryLandingPage(props) {
   const links = [
     { name: "Website", href: "https://raidsrc.me" },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc" },
-    { name: "Spotify (soon!)", href: "https://spotify.com" },
-    { name: "Apple Music (soon!)", href: "https://apple.com" },
+    { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs" },
+    { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147" },
+    { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard " },
     { name: "Twitter", href: "https://twitter.com/raidsrc" },
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc" },
     { name: "Bandcamp", href: "https://rudecustard.bandcamp.com" },
