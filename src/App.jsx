@@ -11,6 +11,8 @@ import iconSoundCloud from "./icon-soundcloud.png"
 import iconSpotify from "./icon-spotify.png"
 import iconTwitter from "./icon-twitter.png"
 import iconYouTube from "./icon-youtube.png"
+import iconPayPal from "./icon-paypal.png"
+import iconVenmo from "./icon-venmo.png"
 import favicon from "./favicon.ico"
 
 function CenteredFullPageFlexContainer(props) {
@@ -58,6 +60,8 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud },
     { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub },
     { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub },
+    { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo },
+    { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal },
   ]
   return (
     <div>
