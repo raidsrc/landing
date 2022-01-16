@@ -105,12 +105,48 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
   const imgRef = useRef(null) // first time using a ref ever. a little confusing.
+  const [backButtonTranslucency, setBackButtonTranslucency] = useState("opacity-100")
+  const [backArrowTransparency, setBackArrowTransparency] = useState("opacity-100")
+  const [triggerBackButtonAnimation, setTriggerBackButtonAnimation] = useState(false)
+  const [backButtonWidth, setBackButtonWidth] = useState("80")
+  const [backButtonHeight, setBackButtonHeight] = useState("60")
+
+  function trackScrollingResizing() { // this function fires every time there's a scroll or a resize.
+    // if the window is small, shrink the button. else if the window is big, enlarge the button.
+    if (window.innerWidth < 600) {
+      setBackButtonWidth("50")
+      setBackButtonHeight("50")
+    } else if (window.innerWidth >= 600) {
+      setBackButtonWidth("80")
+      setBackButtonHeight("60")
+    }
+    // i need to make it so that if the mouse has entered and we've scrolled below the image, we make the button opaque. and that it stays opaque even if we keep scrolling while the mouse has entered. how the fuck?
+    // ok. 
+
+    // let's try this again
+    // if scrolled below image 
+    //     if mouse on button, no animate
+    //     else if mouse off button, animate the fade out, set all the shit to be translucent/transparent
+    // if scrolled above image
+    //     whether mouse is on the button or not, do a fade back in 
+    // i think this should work.
+    if (window.innerWidth < 768) { // if window is small (medium?)
+      if (window.scrollY > imgRef.current.height - 50) { // if scrolled below image
+        setBackButtonTranslucency("opacity-20")
+        setBackArrowTransparency("opacity-10")
+      } else if (window.scrollY < imgRef.current.height - 50) { // if scrolled above image
+        setTriggerBackButtonAnimation(false)
+        setBackButtonTranslucency("opacity-100")
+        setBackArrowTransparency("opacity-100")
+      }
+    }
+  }
 
   return (
     <div>
-      <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} />
+      <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing}/>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <img src={hairBlown} ref={imgRef} className="rounded-full w-7/12 
+        <img src={hairBlown} ref={imgRef} onLoad={trackScrollingResizing} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 
                 sm:w-5/12 
                 md:w-4/12 
