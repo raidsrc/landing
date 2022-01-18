@@ -71,9 +71,10 @@ function LandingPageDropdownButton(props) {
   const [contentWidth, setContentWidth] = useState(allIconsWidth)
   const vanishingIcons = useSpring({
     width: open ? "0px" : `${contentWidth}px`,
+    // opacity: open ? 0 : 1,
     config: {
       friction: open ? 50 : 80,
-      precision: open ? 0.001 : (window.innerWidth > 460 ? 0.4 : 0.001 ),
+      precision: open ? 0.001 : (window.innerWidth > 460 ? 0.4 : 0.001),
       tension: 200,
       mass: 3,
       clamp: true,
@@ -86,8 +87,9 @@ function LandingPageDropdownButton(props) {
   }, [width]);
   return (
     <div>
+      width {width} contentWidth {contentWidth}
       <div className="flex flex-row justify-center py-2">
-        <button ref={ref} onClick={() => toggleOpen(old => !old)} className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+        <button onClick={() => toggleOpen(old => !old)} className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
           <animated.div className="overflow-hidden" style={vanishingIcons}>
             <div className="flex flex-row items-center justify-center space-x-3 w-full" >
               {
@@ -95,6 +97,11 @@ function LandingPageDropdownButton(props) {
               }
             </div>
           </animated.div>
+          <div ref={ref} className="flex flex-row items-center justify-center w-auto space-x-3 h-0 overflow-hidden" >
+            {
+              icons.map((icon) => (<img src={icon} className="w-8" />))
+            }
+          </div>
           <div className="md:w-full">
             {props.children}
           </div>

@@ -572,6 +572,14 @@ h3 {
   height: 100vh;
 }
 
+.h-1{
+  height: 0.25rem;
+}
+
+.h-0{
+  height: 0px;
+}
+
 .w-full{
   width: 100%;
 }
@@ -602,6 +610,10 @@ h3 {
 
 .w-8{
   width: 2rem;
+}
+
+.w-auto{
+  width: auto;
 }
 
 .min-w-spiro-min-width{
