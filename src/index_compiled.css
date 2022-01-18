@@ -604,16 +604,8 @@ h3 {
   width: 100vw;
 }
 
-.min-w-full{
-  min-width: 100%;
-}
-
 .min-w-spiro-min-width{
   min-width: 700px;
-}
-
-.min-w-icon-min-width{
-  min-width: 30px;
 }
 
 .max-w-screen-xl{
@@ -987,6 +979,10 @@ h3 {
     width: 10rem;
   }
 
+  .md\:w-full{
+    width: 100%;
+  }
+
   @-webkit-keyframes spinCounterclockwise{
     from{
       transform: rotate(0deg);
@@ -1036,6 +1032,14 @@ h3 {
 }
 
 @media (min-width: 1024px){
+  .lg\:inline-block{
+    display: inline-block;
+  }
+
+  .lg\:hidden{
+    display: none;
+  }
+
   .lg\:w-6\/12{
     width: 50%;
   }

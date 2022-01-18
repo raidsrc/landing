@@ -92,8 +92,7 @@ function LandingPageDropdownButton(props) {
               }
             </div>
           </animated.div>
-          <span className="hidden md:inline-block">{props.children}</span>
-          <div className="md:hidden">
+          <div className="md:w-full">
             {props.children}
           </div>
         </button>
@@ -158,7 +157,7 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
       ]
     },
     {
-      name: "Tips Appreciated", isDropdown: true, icon: [iconVenmo, iconPayPal], contents: [
+      name: "Tip Jar", isDropdown: true, icon: [iconVenmo, iconPayPal], contents: [
         { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo, },
         { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal, },
       ]
