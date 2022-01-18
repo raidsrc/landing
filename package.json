@@ -9,7 +9,9 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-transition-group": "^4.4.2"
+    "react-spring": "^9.4.2",
+    "react-transition-group": "^4.4.2",
+    "react-use": "^17.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",

@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
+import { useSpring, animated } from "react-spring"
+import { useMeasure } from "react-use"
 import me2021dec from "./me_2021_dec (Large).jpeg"
 import hairBlown from "./hair blown.jpg"
 import spiro from "./Homestuck_Spirograph.svg"
@@ -62,12 +64,11 @@ function SmallerLandingPageLinkButton(props) {
 function LandingPageDropdownButton(props) {
   const contents = props.contents // it's an array of objects w/ info for the link and button 
   const icons = props.icon // it's also an array, but of icons imported as js
-  const [showContents, setShowContents] = useState(false)
+  const [open, toggleOpen] = useState(false)
   return (
     <div className="">
       <div className="flex flex-row justify-center py-2">
-        <button onClick={() => { setShowContents(old => !old) }}
-          className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+        <button onClick={() => toggleOpen(old => !old)} className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
           <div className="flex flex-row items-center space-x-3">
             {
               icons.map((icon) => (<img src={icon} width={30} />))
@@ -79,25 +80,40 @@ function LandingPageDropdownButton(props) {
           </div>
         </button>
       </div>
-      {showContents ?
-        <DropdownMenuContainer contents={contents}>
-        </DropdownMenuContainer> :
-        ""
-      }
+      <div>
+        <DropdownMenuContainer contents={contents} open={open} toggleOpen={toggleOpen} />
+      </div>
     </div>
   )
 }
 
 function DropdownMenuContainer(props) {
+  const open = props.open
+  const [ref, { height }] = useMeasure()
+  const defaultHeight = "0px"
+  const [contentHeight, setContentHeight] = useState(defaultHeight)
   const contents = props.contents
+  const expandProps = useSpring({
+    config: { friction: 30, tension: 140 },
+    height: open ? `${contentHeight}px` : defaultHeight,
+    clamp: true,
+  })
+  useEffect(() => {
+    setContentHeight(height);
+    window.addEventListener("resize", setContentHeight(height));
+    return window.removeEventListener("resize", setContentHeight(height));
+  }, [height]);
+
   return (
-    <div className="flex flex-col items-center w-full">
-      {contents.map(({ name, href, icon }) => (
-        <SmallerLandingPageLinkButton href={href} icon={icon}>
-          {name}
-        </SmallerLandingPageLinkButton>
-      ))}
-    </div>
+    <animated.div className="overflow-hidden" style={expandProps}>
+      <div ref={ref} className="flex flex-col items-center w-full">
+        {contents.map(({ name, href, icon }) => (
+          <SmallerLandingPageLinkButton href={href} icon={icon}>
+            {name}
+          </SmallerLandingPageLinkButton>
+        ))}
+      </div>
+    </animated.div>
   )
 }
 
