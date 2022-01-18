@@ -72,7 +72,11 @@ function LandingPageDropdownButton(props) {
   const vanishingIcons = useSpring({
     width: open ? "0px" : `${contentWidth}px`,
     config: {
-      friction: open ? 50 : 80
+      friction: open ? 50 : 80,
+      precision: open ? 0.001 : (window.innerWidth > 460 ? 0.4 : 0.001 ),
+      tension: 200,
+      mass: 3,
+      clamp: true,
     }
   })
   useEffect(() => {
@@ -87,7 +91,7 @@ function LandingPageDropdownButton(props) {
           <animated.div className="overflow-hidden" style={vanishingIcons}>
             <div className="flex flex-row items-center justify-center space-x-3 w-full" >
               {
-                icons.map((icon) => (<img src={icon} width={30} />))
+                icons.map((icon) => (<img src={icon} className="w-8" />))
               }
             </div>
           </animated.div>

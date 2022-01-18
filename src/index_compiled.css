@@ -600,6 +600,10 @@ h3 {
   width: 100vw;
 }
 
+.w-8{
+  width: 2rem;
+}
+
 .min-w-spiro-min-width{
   min-width: 700px;
 }
