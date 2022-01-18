@@ -737,21 +737,6 @@ h3 {
   padding-right: 0.5rem;
 }
 
-.py-3{
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.py-8{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 .pt-7{
   padding-top: 1.75rem;
 }
@@ -800,16 +785,16 @@ h3 {
           text-decoration-line: underline;
 }
 
-.opacity-10{
-  opacity: 0.1;
-}
-
 .opacity-100{
   opacity: 1;
 }
 
 .opacity-20{
   opacity: 0.2;
+}
+
+.opacity-10{
+  opacity: 0.1;
 }
 
 .outline{
@@ -994,16 +979,6 @@ h3 {
   .md\:px-0{
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .md\:py-2{
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .md\:py-1{
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
   }
 
   .md\:pt-0{
