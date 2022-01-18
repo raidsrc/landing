@@ -831,6 +831,10 @@ h3 {
   filter: var(--tw-filter);
 }
 
+.filter{
+  filter: var(--tw-filter);
+}
+
 .duration-150{
   transition-duration: 150ms;
 }
