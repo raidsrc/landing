@@ -40,6 +40,7 @@ module.exports = {
       },
       minWidth: {
         'spiro-min-width': '700px',
+        'icon-min-width': '2rem',
       },
       gridTemplateRows: {
         // Simple 8 row grid
