@@ -604,8 +604,16 @@ h3 {
   width: 100vw;
 }
 
+.min-w-full{
+  min-width: 100%;
+}
+
 .min-w-spiro-min-width{
   min-width: 700px;
+}
+
+.min-w-icon-min-width{
+  min-width: 30px;
 }
 
 .max-w-screen-xl{
@@ -675,10 +683,6 @@ h3 {
 
 .flex-wrap{
   flex-wrap: wrap;
-}
-
-.flex-nowrap{
-  flex-wrap: nowrap;
 }
 
 .items-center{
