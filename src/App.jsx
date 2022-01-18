@@ -15,6 +15,7 @@ import iconTwitter from "./icon-twitter.png"
 import iconYouTube from "./icon-youtube.png"
 import iconPayPal from "./icon-paypal.png"
 import iconVenmo from "./icon-venmo.png"
+import iconYoutubeMusic from "./icon-youtube-music.png"
 import favicon from "./favicon.ico"
 
 function CenteredFullPageFlexContainer(props) {
@@ -123,19 +124,21 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
     { name: "Website", href: "https://raidsrc.me", icon: favicon, },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube, },
     { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp, },
+    { name: "Twitter", href: "https://twitter.com/raidsrc", icon: iconTwitter, },
     {
-      name: "Music Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconAmazonMusic, iconSoundCloud], contents:
+      name: "Major Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconYoutubeMusic, iconAmazonMusic, iconSoundCloud], contents:
         [
           { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify, },
           { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic, },
+          { name: "YouTube Music", href: "https://music.youtube.com/channel/UCGKvRfdzgIk6hrr-D4lkzYA", icon: iconYoutubeMusic, },
           { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic, },
           { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud, },
         ]
     },
     {
       name: "GitHub Profiles", isDropdown: true, icon: [iconGitHub, iconGitHub], contents: [
-        { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub, },
-        { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub, },
+        { name: "Personal", href: "https://github.com/raidsrc", icon: iconGitHub, },
+        { name: "School", href: "https://github.com/rsrchen", icon: iconGitHub, },
       ]
     },
     {
@@ -145,14 +148,22 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
       ]
     },
   ]
+  const [mousedOverImg, setMousedOverImg] = useState(false)
+  const imgSpringBounce = useSpring({
+    opacity: mousedOverImg ? 0.8 : 1,
+    transform: mousedOverImg ? "scale(1.04)" : "scale(1)",
+    config: {
+      friction: 4,
+    },
+  })
   return (
     <div>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <img src={me2021dec} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
+        <animated.img src={me2021dec} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
                   tiny-screen:w-8/12 
                   sm:w-6/12 
                   md:w-4/12 
-                  lg:w-3/12" />
+                  lg:w-3/12" style={imgSpringBounce} onMouseEnter={() => setMousedOverImg(true)} onMouseLeave={() => setMousedOverImg(false)} />
       </div>
       <div className="flex flex-row justify-center pt-6">
         <h1 className="text-white mild-text-shadow-left-down text-center">
