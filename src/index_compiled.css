@@ -677,6 +677,10 @@ h3 {
   flex-wrap: wrap;
 }
 
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
 .items-center{
   align-items: center;
 }

@@ -66,15 +66,29 @@ function LandingPageDropdownButton(props) {
   const contents = props.contents // it's an array of objects w/ info for the link and button 
   const icons = props.icon // it's also an array, but of icons imported as js
   const [open, toggleOpen] = useState(false)
+  const [ref, { width }] = useMeasure()
+  const defaultImageDivWidth = "0px"
+  const [contentWidth, setContentWidth] = useState(width)
+  const vanishingIcons = useSpring({
+    width: open ? defaultImageDivWidth : `${contentWidth}px`
+  })
+  // useEffect(() => {
+  //   setContentWidth(width);
+  //   window.addEventListener("resize", setContentWidth(width));
+  //   return window.removeEventListener("resize", setContentWidth(width));
+  // }, [width]);
   return (
-    <div className="">
+    <div>
+      width: {width}
       <div className="flex flex-row justify-center py-2">
-        <button onClick={() => toggleOpen(old => !old)} className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
-          <div className="flex flex-row items-center space-x-3">
-            {
-              icons.map((icon) => (<img src={icon} width={30} />))
-            }
-            <span className="hidden md:inline-block">{props.children}</span>
+        <button ref={ref} onClick={() => toggleOpen(old => !old)} className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+          <div>
+            <animated.div className="flex flex-row items-center space-x-3 overflow-hidden" style={vanishingIcons}>
+              {
+                icons.map((icon) => (<img src={icon} width={30} />))
+              }
+              <span className="hidden md:inline-block">{props.children}</span>
+            </animated.div>
           </div>
           <div className="md:hidden">
             {props.children}
