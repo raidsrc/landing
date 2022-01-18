@@ -51,21 +51,23 @@ function LandingPageDropdownButton(props) {
   const icons = props.icon
   const [showContents, setShowContents] = useState(false)
   return (
-    <div className="flex flex-row justify-center py-2">
-      <button onClick={() => { setShowContents(old => !old) }}
-        className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
-        <div className="flex flex-row items-center space-x-3">
-          {
-            icons.map((icon) => (<img src={icon} width={30} />))
-          }
-          <span>{props.children}</span>
-        </div>
+    <div className="block">
+      <div className="flex flex-row justify-center py-2">
+        <button onClick={() => { setShowContents(old => !old) }}
+          className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+          <div className="flex flex-row items-center space-x-3">
+            {
+              icons.map((icon) => (<img src={icon} width={30} />))
+            }
+            <span>{props.children}</span>
+          </div>
+        </button>
+      </div>
         {showContents ?
           <DropdownMenuContainer>
           </DropdownMenuContainer> :
           ""
         }
-      </button>
     </div>
   )
 }
@@ -73,8 +75,16 @@ function LandingPageDropdownButton(props) {
 function DropdownMenuContainer(props) {
 
   return (
-    <div>
-      sup
+    <div className="flex flex-col items-center">
+      <div>
+        sup
+      </div>
+      <div>
+        sup
+      </div>
+      <div>
+        sup
+      </div>
     </div>
   )
 }
@@ -87,8 +97,7 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
     { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp },
     { name: "Music Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconAmazonMusic, iconSoundCloud] },
     { name: "GitHub Profiles", isDropdown: true, icon: [iconGitHub, iconGitHub] },
-    { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo },
-    { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal },
+    { name: "Tips Appreciated", isDropdown: true, icon: [iconVenmo, iconPayPal] },
   ]
   const streamingServices = [
     { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify },
@@ -99,6 +108,10 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
   const githubs = [
     { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub },
     { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub },
+  ]
+  const moneys = [
+    { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo },
+    { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal },
   ]
   return (
     <div>
