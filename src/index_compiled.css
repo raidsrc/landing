@@ -568,10 +568,6 @@ h3 {
   display: contents;
 }
 
-.hidden{
-  display: none;
-}
-
 .h-screen{
   height: 100vh;
 }
@@ -959,16 +955,12 @@ h3 {
     margin-top: 2rem;
   }
 
-  .md\:inline-block{
-    display: inline-block;
-  }
-
-  .md\:hidden{
-    display: none;
-  }
-
   .md\:w-8\/12{
     width: 66.666667%;
+  }
+
+  .md\:w-full{
+    width: 100%;
   }
 
   .md\:w-4\/12{
@@ -977,10 +969,6 @@ h3 {
 
   .md\:w-40{
     width: 10rem;
-  }
-
-  .md\:w-full{
-    width: 100%;
   }
 
   @-webkit-keyframes spinCounterclockwise{
@@ -1032,14 +1020,6 @@ h3 {
 }
 
 @media (min-width: 1024px){
-  .lg\:inline-block{
-    display: inline-block;
-  }
-
-  .lg\:hidden{
-    display: none;
-  }
-
   .lg\:w-6\/12{
     width: 50%;
   }
