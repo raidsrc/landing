@@ -48,6 +48,7 @@ function LandingPageLinkButton(props) {
 }
 
 function LandingPageDropdownButton(props) {
+  const contents = props.contents
   const icons = props.icon
   const [showContents, setShowContents] = useState(false)
   return (
@@ -92,20 +93,30 @@ function DropdownMenuContainer(props) {
 function PrimaryLandingPage(props) { // TODO: use react-spring to animate a dropdown like the mobile stuff i've made page on the main site. contain all the music streaming services in it. have all the icons for all the streaming services on that one button. click the button and then all the other buttons fall down. include spotify, apple music, amazon music, pandora, deezer, netease, also include a caption that says "if your favorite streaming service wasn't listed, just search up rude custard and i'm sure i'll appear!" 
   const setShowSupPage = props.setShowSupPage
   const buttons = [
-    { name: "Website", href: "https://raidsrc.me", icon: favicon, level: 0 },
-    { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube, level: 0 },
-    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp, level: 0 },
-    { name: "Music Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconAmazonMusic, iconSoundCloud], level: 0 },
-    { name: "GitHub Profiles", isDropdown: true, icon: [iconGitHub, iconGitHub], level: 0 },
-    { name: "Tips Appreciated", isDropdown: true, icon: [iconVenmo, iconPayPal], level: 0 },
-    { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify, level: 1, musicStreamingPlatform: true },
-    { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic, level: 1, musicStreamingPlatform: true },
-    { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic, level: 1, musicStreamingPlatform: true },
-    { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud, level: 1, musicStreamingPlatform: true },
-    { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub, level: 1, github: true },
-    { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub, level: 1, github: true },
-    { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo, level: 1, tipJar: true },
-    { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal, level: 1, tipJar: true },
+    { name: "Website", href: "https://raidsrc.me", icon: favicon, },
+    { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube, },
+    { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp, },
+    {
+      name: "Music Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconAmazonMusic, iconSoundCloud], contents:
+        [
+          { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify, },
+          { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic, },
+          { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic, },
+          { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud, },
+        ]
+    },
+    {
+      name: "GitHub Profiles", isDropdown: true, icon: [iconGitHub, iconGitHub], contents: [
+        { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub, },
+        { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub, },
+      ]
+    },
+    {
+      name: "Tips Appreciated", isDropdown: true, icon: [iconVenmo, iconPayPal], contents: [
+        { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo, },
+        { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal, },
+      ]
+    },
   ]
   return (
     <div>
@@ -131,10 +142,10 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
           Raid // Rude Custard // Ray Louis
         </h2>
       </div>
-      {buttons.filter(({ level }) => level === 0).map(({ name, href, icon, isDropdown }) => {
+      {buttons.map(({ name, href, icon, isDropdown, contents }) => {
         if (isDropdown) {
           return (
-            <LandingPageDropdownButton icon={icon}>
+            <LandingPageDropdownButton icon={icon} contents={contents}>
               {name}
             </LandingPageDropdownButton>
           )
