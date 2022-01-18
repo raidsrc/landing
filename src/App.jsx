@@ -48,29 +48,39 @@ function LandingPageLinkButton(props) {
 }
 
 function LandingPageDropdownButton(props) {
-  const icon = props.icon
+  const icons = props.icon
+  const [showContents, setShowContents] = useState(false)
   return (
     <div className="flex flex-row justify-center py-2">
-      <a target="_blank" rel="noreferrer noopener" href={props.href}
+      <button onClick={() => { setShowContents(old => !old) }}
         className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
-        <button>
-          <div className="flex flex-row items-center space-x-3">
-            {Array.isArray(icon) ?
-              icon.map((icon) => (<img src={icon} width={30} />)) :
-              <img src={icon} width={30} />
-            }
-            <span>{props.children}</span>
-          </div>
-        </button>
-      </a>
+        <div className="flex flex-row items-center space-x-3">
+          {
+            icons.map((icon) => (<img src={icon} width={30} />))
+          }
+          <span>{props.children}</span>
+        </div>
+        {showContents ?
+          <DropdownMenuContainer>
+          </DropdownMenuContainer> :
+          ""
+        }
+      </button>
+    </div>
+  )
+}
+
+function DropdownMenuContainer(props) {
+
+  return (
+    <div>
+      sup
     </div>
   )
 }
 
 function PrimaryLandingPage(props) { // TODO: use react-spring to animate a dropdown like the mobile stuff i've made page on the main site. contain all the music streaming services in it. have all the icons for all the streaming services on that one button. click the button and then all the other buttons fall down. include spotify, apple music, amazon music, pandora, deezer, netease, also include a caption that says "if your favorite streaming service wasn't listed, just search up rude custard and i'm sure i'll appear!" 
   const setShowSupPage = props.setShowSupPage
-  const [showStreamingServices, setShowStreamingServices] = useState(false)
-  const [showGithubs, setShowGithubs] = useState(false)
   const topLevelButtons = [
     { name: "Website", href: "https://raidsrc.me", icon: favicon },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube },
