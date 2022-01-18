@@ -40,7 +40,27 @@ function LandingPageLinkButton(props) {
       <a target="_blank" rel="noreferrer noopener" href={props.href}
         className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
         <button>
-          <div className="flex flex-row items-center space-x-3"><img src={icon} width={30}/><span>{props.children}</span></div>
+          <div className="flex flex-row items-center space-x-3"><img src={icon} width={30} /><span>{props.children}</span></div>
+        </button>
+      </a>
+    </div>
+  )
+}
+
+function LandingPageDropdownButton(props) {
+  const icon = props.icon
+  return (
+    <div className="flex flex-row justify-center py-2">
+      <a target="_blank" rel="noreferrer noopener" href={props.href}
+        className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+        <button>
+          <div className="flex flex-row items-center space-x-3">
+            {Array.isArray(icon) ?
+              icon.map((icon) => (<img src={icon} width={30} />)) :
+              <img src={icon} width={30} />
+            }
+            <span>{props.children}</span>
+          </div>
         </button>
       </a>
     </div>
@@ -49,19 +69,26 @@ function LandingPageLinkButton(props) {
 
 function PrimaryLandingPage(props) { // TODO: use react-spring to animate a dropdown like the mobile stuff i've made page on the main site. contain all the music streaming services in it. have all the icons for all the streaming services on that one button. click the button and then all the other buttons fall down. include spotify, apple music, amazon music, pandora, deezer, netease, also include a caption that says "if your favorite streaming service wasn't listed, just search up rude custard and i'm sure i'll appear!" 
   const setShowSupPage = props.setShowSupPage
-  const links = [
+  const [showStreamingServices, setShowStreamingServices] = useState(false)
+  const [showGithubs, setShowGithubs] = useState(false)
+  const topLevelButtons = [
     { name: "Website", href: "https://raidsrc.me", icon: favicon },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube },
     { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp },
+    { name: "Music Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconAmazonMusic, iconSoundCloud] },
+    { name: "GitHub Profiles", isDropdown: true, icon: [iconGitHub, iconGitHub] },
+    { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo },
+    { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal },
+  ]
+  const streamingServices = [
     { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify },
     { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic },
     { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic },
-    { name: "Twitter", href: "https://twitter.com/raidsrc", icon: iconTwitter },
     { name: "SoundCloud", href: "https://soundcloud.com/raidsrc", icon: iconSoundCloud },
+  ]
+  const githubs = [
     { name: "GitHub, Personal", href: "https://github.com/raidsrc", icon: iconGitHub },
     { name: "GitHub, School", href: "https://github.com/rsrchen", icon: iconGitHub },
-    { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo },
-    { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal },
   ]
   return (
     <div>
@@ -87,11 +114,21 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
           Raid // Rude Custard // Ray Louis
         </h2>
       </div>
-      {links.map(({ name, href, icon }) => (
-        <LandingPageLinkButton href={href} icon={icon}>
-          {name}
-        </LandingPageLinkButton>
-      ))}
+      {topLevelButtons.map(({ name, href, icon, isDropdown }) => {
+        if (isDropdown) {
+          return (
+            <LandingPageDropdownButton icon={icon}>
+              {name}
+            </LandingPageDropdownButton>
+          )
+        } else {
+          return (
+            <LandingPageLinkButton href={href} icon={icon}>
+              {name}
+            </LandingPageLinkButton>
+          )
+        }
+      })}
 
       <div className="flex flex-row justify-center py-12 mt-3">
         <button onClick={() => { setShowSupPage(true); scroll(0, 0) }} className="text-white border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
@@ -144,7 +181,7 @@ function SupPage(props) {
 
   return (
     <div>
-      <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing}/>
+      <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <img src={hairBlown} ref={imgRef} onLoad={trackScrollingResizing} className="rounded-full w-7/12 
                 tiny-screen:w-6/12 
