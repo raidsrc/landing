@@ -572,6 +572,10 @@ h3 {
   display: contents;
 }
 
+.hidden{
+  display: none;
+}
+
 .h-screen{
   height: 100vh;
 }
@@ -598,6 +602,10 @@ h3 {
 
 .w-screen{
   width: 100vw;
+}
+
+.w-10\/12{
+  width: 83.333333%;
 }
 
 .min-w-spiro-min-width{
@@ -667,6 +675,10 @@ h3 {
 
 .flex-col{
   flex-direction: column;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
 }
 
 .items-center{
@@ -743,6 +755,11 @@ h3 {
 .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.px-8{
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pt-7{
@@ -946,6 +963,14 @@ h3 {
     margin-top: 2rem;
   }
 
+  .md\:inline-block{
+    display: inline-block;
+  }
+
+  .md\:hidden{
+    display: none;
+  }
+
   .md\:w-8\/12{
     width: 66.666667%;
   }
@@ -981,6 +1006,10 @@ h3 {
   .md\:animate-slow-spin-spirograph{
     -webkit-animation: spinCounterclockwise 240s linear infinite;
             animation: spinCounterclockwise 240s linear infinite;
+  }
+
+  .md\:flex-row{
+    flex-direction: row;
   }
 
   .md\:py-3{

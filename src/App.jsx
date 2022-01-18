@@ -36,36 +36,51 @@ function NewTab(props) {
 function LandingPageLinkButton(props) {
   const icon = props.icon
   return (
-    <div className="flex flex-row justify-center py-2">
-      <a target="_blank" rel="noreferrer noopener" href={props.href}
-        className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
-        <button>
-          <div className="flex flex-row items-center space-x-3"><img src={icon} width={30} /><span>{props.children}</span></div>
-        </button>
+    <div className="flex flex-row justify-center py-2 w-full">
+      <a target="_blank" rel="noreferrer noopener" href={props.href} className="flex justify-center border-2 bg-gray-200 w-11/12 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+        <div>
+          <div className="flex flex-row items-center space-x-3 w-full"><img src={icon} width={30} /><span>{props.children}</span></div>
+        </div>
+      </a>
+    </div>
+  )
+}
+
+function SmallerLandingPageLinkButton(props) {
+  const icon = props.icon
+  return (
+    <div className="flex flex-row justify-center py-2 w-10/12">
+      <a target="_blank" rel="noreferrer noopener" href={props.href} className="flex justify-center border-2 bg-gray-200 w-11/12 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+        <div>
+          <div className="flex flex-row items-center space-x-3 w-full"><img src={icon} width={30} /><span>{props.children}</span></div>
+        </div>
       </a>
     </div>
   )
 }
 
 function LandingPageDropdownButton(props) {
-  const contents = props.contents
-  const icons = props.icon
+  const contents = props.contents // it's an array of objects w/ info for the link and button 
+  const icons = props.icon // it's also an array, but of icons imported as js
   const [showContents, setShowContents] = useState(false)
   return (
     <div className="">
       <div className="flex flex-row justify-center py-2">
         <button onClick={() => { setShowContents(old => !old) }}
-          className="flex justify-center border-2 bg-gray-200 w-full py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
+          className="flex flex-col flex-wrap md:flex-row items-center justify-center border-2 bg-gray-200 w-11/12 px-8 py-2 md:w-8/12 md:py-3 lg:w-6/12 hover:bg-gray-300 duration-150 hover:ease-in hover:border-gray-800 ">
           <div className="flex flex-row items-center space-x-3">
             {
               icons.map((icon) => (<img src={icon} width={30} />))
             }
-            <span>{props.children}</span>
+            <span className="hidden md:inline-block">{props.children}</span>
+          </div>
+          <div className="md:hidden">
+            {props.children}
           </div>
         </button>
       </div>
       {showContents ?
-        <DropdownMenuContainer>
+        <DropdownMenuContainer contents={contents}>
         </DropdownMenuContainer> :
         ""
       }
@@ -74,18 +89,14 @@ function LandingPageDropdownButton(props) {
 }
 
 function DropdownMenuContainer(props) {
-
+  const contents = props.contents
   return (
-    <div className="flex flex-col items-center">
-      <div>
-        sup
-      </div>
-      <div>
-        sup
-      </div>
-      <div>
-        sup
-      </div>
+    <div className="flex flex-col items-center w-full">
+      {contents.map(({ name, href, icon }) => (
+        <SmallerLandingPageLinkButton href={href} icon={icon}>
+          {name}
+        </SmallerLandingPageLinkButton>
+      ))}
     </div>
   )
 }
