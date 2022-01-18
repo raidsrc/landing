@@ -72,8 +72,7 @@ function LandingPageDropdownButton(props) {
   const vanishingIcons = useSpring({
     width: open ? "0px" : `${contentWidth}px`,
     config: {
-      friction: open ? 50 : 160,
-      tension: 250,
+      friction: open ? 50 : 80
     }
   })
   useEffect(() => {
