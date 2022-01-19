@@ -182,10 +182,10 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
   ]
   const [mousedOverImg, setMousedOverImg] = useState(false)
   const imgSpringBounce = useSpring({
-    opacity: mousedOverImg ? 0.8 : 1,
-    transform: mousedOverImg ? "scale(1.04)" : "scale(1)",
+    opacity: mousedOverImg ? 0.75 : 1,
+    transform: mousedOverImg ? "scale(1.05)" : "scale(1)",
     config: {
-      friction: 4,
+      friction: 3,
     },
   })
   return (
