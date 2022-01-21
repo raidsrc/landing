@@ -194,8 +194,8 @@ function PrimaryLandingPage(props) {
     <div>
       <Helmet>
         <meta charset="utf-8" />
-        <title>raidsrc - links</title>
-        <meta name="description" content="Raymond Louis Chen, aka Raid / Rude Custard / Ray Louis. Here's where to find him online." />
+        <title>raidsrc - Website, YouTube, Bandcamp, Twitter, and Other Links.</title>
+        <meta name="description" content="Yo. I'm Raymond. People have also known me as Raid, Rude Custard, and Ray Louis. Come see where you can find me online." />
       </Helmet>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <animated.img src={me2021dec} className="hidden rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs sm:inline-block
@@ -289,7 +289,7 @@ function SupPage(props) {
   return (
     <div>
       <Helmet>
-        <title>raidsrc - about</title>
+        <title>raidsrc - About</title>
       </Helmet>
       <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
