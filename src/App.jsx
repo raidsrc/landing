@@ -17,6 +17,8 @@ import iconPayPal from "./icon-paypal.png"
 import iconVenmo from "./icon-venmo.png"
 import iconYoutubeMusic from "./icon-youtube-music.png"
 import favicon from "./favicon.ico"
+import { Helmet } from "react-helmet"
+
 
 function CenteredFullPageFlexContainer(props) {
   return (
@@ -150,7 +152,7 @@ function DropdownMenuContainer(props) {
   )
 }
 
-function PrimaryLandingPage(props) { // TODO: use react-spring to animate a dropdown like the mobile stuff i've made page on the main site. contain all the music streaming services in it. have all the icons for all the streaming services on that one button. click the button and then all the other buttons fall down. include spotify, apple music, amazon music, pandora, deezer, netease, also include a caption that says "if your favorite streaming service wasn't listed, just search up rude custard and i'm sure i'll appear!" 
+function PrimaryLandingPage(props) {
   const setShowSupPage = props.setShowSupPage
   const buttons = [
     { name: "Website", href: "https://raidsrc.me", icon: favicon, },
@@ -190,12 +192,19 @@ function PrimaryLandingPage(props) { // TODO: use react-spring to animate a drop
   })
   return (
     <div>
+      <Helmet>
+        <meta charset="utf-8" />
+        <title>raidsrc - links</title>
+        <meta name="description" content="Raymond Louis Chen, aka Raid / Rude Custard / Ray Louis. Here's where to find him online." />
+      </Helmet>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <animated.img src={me2021dec} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
-                  tiny-screen:w-8/12 
+        <animated.img src={me2021dec} className="hidden rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs sm:inline-block
                   sm:w-6/12 
                   md:w-4/12 
                   lg:w-3/12" style={imgSpringBounce} onMouseEnter={() => setMousedOverImg(true)} onMouseLeave={() => setMousedOverImg(false)} />
+        <img src={me2021dec} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
+                  tiny-screen:w-8/12 
+                  sm:hidden" />
       </div>
       <div className="flex flex-row justify-center pt-6">
         <h1 className="text-white mild-text-shadow-left-down text-center">
@@ -279,6 +288,9 @@ function SupPage(props) {
 
   return (
     <div>
+      <Helmet>
+        <title>raidsrc - about</title>
+      </Helmet>
       <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
         <img src={hairBlown} ref={imgRef} onLoad={trackScrollingResizing} className="rounded-full w-7/12 

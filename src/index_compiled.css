@@ -616,18 +616,12 @@ h3 {
   width: 100vw;
 }
 
-.min-w-max{
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
+.min-w-icon-min-width{
+  min-width: 2rem;
 }
 
 .min-w-spiro-min-width{
   min-width: 700px;
-}
-
-.min-w-icon-min-width{
-  min-width: 2rem;
 }
 
 .max-w-screen-xl{
@@ -955,6 +949,14 @@ h3 {
 }
 
 @media (min-width: 600px){
+  .sm\:inline-block{
+    display: inline-block;
+  }
+
+  .sm\:hidden{
+    display: none;
+  }
+
   .sm\:w-6\/12{
     width: 50%;
   }
@@ -1020,10 +1022,6 @@ h3 {
   .md\:animate-slow-spin-spirograph{
     -webkit-animation: spinCounterclockwise 240s linear infinite;
             animation: spinCounterclockwise 240s linear infinite;
-  }
-
-  .md\:flex-row{
-    flex-direction: row;
   }
 
   .md\:py-3{
