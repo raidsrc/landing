@@ -16,7 +16,7 @@ import iconYouTube from "./icon-youtube.png"
 import iconPayPal from "./icon-paypal.png"
 import iconVenmo from "./icon-venmo.png"
 import iconYoutubeMusic from "./icon-youtube-music.png"
-import iconTwitch from "./icon-twitch.png"
+// import iconTwitch from "./icon-twitch.png"
 import favicon from "./favicon.ico"
 import { Helmet } from "react-helmet"
 
@@ -160,7 +160,7 @@ function PrimaryLandingPage(props) {
     { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube, },
     { name: "Bandcamp", href: "https://rudecustard.bandcamp.com", icon: iconBandcamp, },
     { name: "Twitter", href: "https://twitter.com/raidsrc", icon: iconTwitter, },
-    { name: "Twitch", href: "https://twitch.tv/raidsrc", icon: iconTwitch, },
+    // { name: "Twitch", href: "https://twitch.tv/raidsrc", icon: iconTwitch, },
     {
       name: "Major Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconYoutubeMusic, iconAmazonMusic, iconSoundCloud], contents:
         [
