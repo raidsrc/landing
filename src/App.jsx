@@ -26,8 +26,9 @@ function App(props) {
           {/* the plan: centered circle image of me. big text below that say Raid. or Bite Me. or Ray Louis. below that have links to where i be at. youtube, spotify, apple music, etc. have them arranged like linktree has it but different. wide buttons with off-white colored backgrounds. black text. icons on the buttons.*/}
           <BrowserRouter>
             <Routes>
-              <Route exact path={'/'} element={<PrimaryLandingPage />} />
-              <Route exact path={'/sup'} element={<SupPage />} />
+              <Route exact path='/' element={<PrimaryLandingPage />} />
+              <Route exact path='/sup' element={<SupPage />} />
+              <Route exact path='*' element={<PrimaryLandingPage />} />
             </Routes>
           </BrowserRouter>
         </CenteredFullPageFlexContainer>
