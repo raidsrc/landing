@@ -18,7 +18,6 @@ function CenteredFullPageFlexContainer(props) {
 }
 
 function App(props) {
-  const [showSupPage, setShowSupPage] = useState(false)
 
   return (
     <div>
@@ -31,8 +30,6 @@ function App(props) {
               <Route exact path={'/sup'} element={<SupPage />} />
             </Routes>
           </BrowserRouter>
-
-          {/* {showSupPage ? <SupPage setShowSupPage={setShowSupPage} /> : <PrimaryLandingPage setShowSupPage={setShowSupPage} />} */}
         </CenteredFullPageFlexContainer>
       </div>
       <div className="fixed flex flex-row justify-center items-center top-0 -z-10 w-screen h-screen">

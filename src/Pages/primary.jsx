@@ -11,7 +11,7 @@ import iconVenmo from "../icon-venmo.png"
 import iconYoutubeMusic from "../icon-youtube-music.png"
 import me2021dec from "../me_2021_dec (Large).jpeg"
 import iconRaidsrcMe from "../raid_symbol_trimmed_aligned_white_on_black_icon_more_padding.png"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSpring, animated } from "react-spring"
 import { useMeasure } from "react-use"
 import { Helmet } from "react-helmet"
@@ -141,7 +141,6 @@ function DropdownMenuContainer(props) {
 
 
 function PrimaryLandingPage(props) {
-  const setShowSupPage = props.setShowSupPage
   const buttons = [
     { name: "Website", href: "https://raidsrc.me", icon: iconRaidsrcMe, },
     { name: "YouTube", href: "https://youtube.com/c/raidsrc", icon: iconYouTube, },
@@ -227,7 +226,8 @@ function PrimaryLandingPage(props) {
       })}
 
       <div className="flex flex-row justify-center py-12 mt-3">
-        <Link to="/sup" onClick={() => { scroll(0, 0) }} className="text-white border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
+        <Link to="/sup" onClick={() => { scroll(0, 0) }}
+          className="text-white text-center border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
           Yo.
         </Link>
       </div>

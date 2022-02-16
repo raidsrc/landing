@@ -1,6 +1,6 @@
 // fuck this fucking back button. I'm making my own component for it. because it's so fucking INFURIATING TO DEAL WITH 
 import { CSSTransition } from "react-transition-group"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 
 function BackButton(props) {
