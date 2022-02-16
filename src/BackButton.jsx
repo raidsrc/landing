@@ -1,10 +1,10 @@
 // fuck this fucking back button. I'm making my own component for it. because it's so fucking INFURIATING TO DEAL WITH 
 import { CSSTransition } from "react-transition-group"
 import React, { useEffect, useRef, useState } from "react"
+import { Link } from "react-router-dom"
 
 function BackButton(props) {
   const backButtonRef = useRef(null)
-  const setShowSupPage = props.setShowSupPage
   const backButtonTranslucency = props.backButtonTranslucency
   const backArrowTransparency = props.backArrowTransparency
   const triggerBackButtonAnimation = props.triggerBackButtonAnimation
@@ -29,8 +29,8 @@ function BackButton(props) {
         {/* these CSSTransitions here handle the fade in and out of the button when we scroll above or below the image. */}
         <div className={"fixed left-7 top-6 md:left-auto md:top-auto " + backButtonTranslucency + " hover:opacity-100 duration-300 ease-in"} ref={backButtonRef}>
           {/* the only animation happening with this button is the outline color changing */}
-          <button className="outline outline-1 hover:outline-white hover:ease-in duration-150"
-            onClick={() => { setShowSupPage(false); scroll(0, 0) }}>
+          <Link to="/" className="outline outline-1 hover:outline-white hover:ease-in duration-150"
+            onClick={() => { scroll(0, 0) }}>
 
             <CSSTransition timeout={400} in={triggerBackButtonAnimation} classNames="transparent-arrow">
               {/* the actual arrow is wrapped in its own CSSTransition because it needs to become almost completely transparent */}
@@ -39,7 +39,7 @@ function BackButton(props) {
                 className={"p-2 " + backArrowTransparency + " duration-300"}><path d="M24 12l-12-9v5h-12v8h12v5l12-9z">
                 </path></svg>
             </CSSTransition>
-          </button>
+          </Link>
         </div>
       </CSSTransition >
     </div>
