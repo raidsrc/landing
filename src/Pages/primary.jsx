@@ -9,7 +9,7 @@ import iconYouTube from "../icon-youtube.png"
 import iconPayPal from "../icon-paypal.png"
 import iconVenmo from "../icon-venmo.png"
 import iconYoutubeMusic from "../icon-youtube-music.png"
-import me2021dec from "../me_2021_dec (Large).jpeg"
+import trenchCoatHillside from "../oakland hillside.jpeg"
 import iconRaidsrcMe from "../raid_symbol_trimmed_aligned_white_on_black_icon_more_padding.png"
 import React, { useEffect, useState } from "react"
 import { useSpring, animated } from "react-spring"
@@ -151,6 +151,7 @@ function PrimaryLandingPage(props) {
       name: "Major Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconYoutubeMusic, iconAmazonMusic, iconSoundCloud], contents:
         [
           { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify, },
+          { name: "Spotify 2", href: "https://open.spotify.com/artist/0puS4sx2S57u3OUQbGJrV1", icon: iconSpotify, },
           { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic, },
           { name: "YouTube Music", href: "https://music.youtube.com/channel/UCGKvRfdzgIk6hrr-D4lkzYA", icon: iconYoutubeMusic, },
           { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic, },
@@ -186,11 +187,11 @@ function PrimaryLandingPage(props) {
         <meta name="description" content="Yo. I'm Raymond. People have also known me as Raid, Rude Custard, and Ray Louis. Come see where you can find me online." />
       </Helmet>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <animated.img src={me2021dec} className="hidden rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs sm:inline-block
+        <animated.img src={trenchCoatHillside} className="hidden rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs sm:inline-block
                   sm:w-6/12 
                   md:w-4/12 
                   lg:w-3/12" style={imgSpringBounce} onMouseEnter={() => setMousedOverImg(true)} onMouseLeave={() => setMousedOverImg(false)} />
-        <img src={me2021dec} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
+        <img src={trenchCoatHillside} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
                   tiny-screen:w-8/12 
                   sm:hidden" />
       </div>

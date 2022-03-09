@@ -616,6 +616,10 @@ h3 {
   width: 58.333333%;
 }
 
+.w-8\/12{
+  width: 66.666667%;
+}
+
 .min-w-spiro-min-width{
   min-width: 700px;
 }
@@ -863,6 +867,21 @@ h3 {
   filter: var(--tw-filter);
 }
 
+.brightness-90{
+  --tw-brightness: brightness(.9);
+  filter: var(--tw-filter);
+}
+
+.brightness-200{
+  --tw-brightness: brightness(2);
+  filter: var(--tw-filter);
+}
+
+.brightness-150{
+  --tw-brightness: brightness(1.5);
+  filter: var(--tw-filter);
+}
+
 .hue-rotate-90{
   --tw-hue-rotate: hue-rotate(90deg);
   filter: var(--tw-filter);
@@ -1054,5 +1073,9 @@ h3 {
 
   .lg\:w-2\/12{
     width: 16.666667%;
+  }
+
+  .lg\:w-1\/5{
+    width: 20%;
   }
 }
