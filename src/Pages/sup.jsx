@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import BackButton from "../BackButton"
 import { Helmet } from "react-helmet"
-import conga from "../conga.jpg"
+import lighthouse from "../lighthouse jam session.jpg"
 
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
@@ -50,7 +50,7 @@ function SupPage(props) {
       </Helmet>
       <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <img src={conga} ref={imgRef} onLoad={trackScrollingResizing} className="brightness-150 rounded-full w-8/12 
+        <img src={lighthouse} ref={imgRef} onLoad={trackScrollingResizing} className="rounded-full w-8/12 
                 tiny-screen:w-6/12 
                 sm:w-5/12 
                 md:w-4/12 
