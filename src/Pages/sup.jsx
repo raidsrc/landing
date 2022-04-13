@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import BackButton from "../BackButton"
 import { Helmet } from "react-helmet"
-import lighthouse from "../lighthouse jam session.jpg"
+import supImg from "../lighthouse.jpg"
 
 function SupPage(props) {
   const setShowSupPage = props.setShowSupPage
@@ -50,7 +50,7 @@ function SupPage(props) {
       </Helmet>
       <BackButton imgRef={imgRef} setShowSupPage={setShowSupPage} backButtonTranslucency={backButtonTranslucency} setBackButtonTranslucency={setBackButtonTranslucency} backArrowTransparency={backArrowTransparency} setBackArrowTransparency={setBackArrowTransparency} triggerBackButtonAnimation={triggerBackButtonAnimation} setTriggerBackButtonAnimation={setTriggerBackButtonAnimation} backButtonWidth={backButtonWidth} setBackButtonWidth={setBackButtonWidth} backButtonHeight={backButtonHeight} setBackButtonHeight={setBackButtonHeight} trackScrollingResizing={trackScrollingResizing} />
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <img src={lighthouse} ref={imgRef} onLoad={trackScrollingResizing} className="rounded-full w-8/12 
+        <img src={supImg} ref={imgRef} onLoad={trackScrollingResizing} className="brightness-150 rounded-full w-8/12 
                 tiny-screen:w-6/12 
                 sm:w-5/12 
                 md:w-4/12 
@@ -65,20 +65,19 @@ function SupPage(props) {
             Let me give myself a quick introduction. I'm Ray! I upload YouTube videos under the alias <span className="text-gray-100">Raid</span>. I make music under the name <span className="text-gray-100">Rude Custard</span>. All over the rest of the internet, I go by <span className="text-gray-100">raidsrc</span>. At this point I'm known mostly for my YouTube channel, where I've been uploading since I was 15. I do a lot of music stuff on my channel. Covers, rearrangements, original compositions, and tutorials, mainly. I've made a lot of stuff related to the media I've enjoyed, like <span className="text-gray-100">Homestuck</span> and <span className="text-gray-100">Fullmetal Alchemist: Brotherhood</span>. I like video editing too. I've made a bunch of videos about a whole bunch of things. Some of them for school projects, some of them for fun. A couple of my videos on <span className="text-gray-100">Super Smash Bros Melee</span>, one of my old hobbies, have been enthusiastically received by community members.
           </p>
           <p>
-            Right now, I'm an undergraduate student at the <span className="text-gray-100">University of California Davis</span>. I'm writing this on January 1st, 2022. I'm going to graduate this year if all goes according to plan! I'm majoring in <span className="text-gray-100">Biochemistry and Molecular Biology</span> and minoring in <span className="text-gray-100">Computer Science</span>. I don't like school very much at all. I'm really not cut out for studying. I've never been the most studious person, even as a little kid when everyone fooled me into thinking I was special. But I'm almost done, so I figure I've just gotta grin and bear it for the time being. Then snatch my degree and I'm outta there.
+            Right now, I'm an undergraduate student at the <span className="text-gray-100">University of California Davis</span>. I'm majoring in <span className="text-gray-100">Biochemistry and Molecular Biology</span> and minoring in <span className="text-gray-100">Computer Science</span>. The year I'm writing this blurb, 2022, is the year I graduate. Whew. I'm definitely looking forward to being done with school come June. 
           </p>
           <p>
             I'm trying to keep this brief, since this is just supposed to be a quick introduction for me to paste onto my profile/site landing page. So I'll end it here. I'll leave you some valuable advice as my parting gift to you.
           </p>
           <ul className="list-disc list-inside indent-3 ">
-            <li>Don't ever idolize anyone. They're not worth it. </li>
-            <li>Regularly save backups of your data. </li>
-            <li>Respect must be earned. Still, be honest and polite with everyone you meet. </li>
+            <li>Don't ever idolize anyone. They're not worth it. I promise. </li>
+            <li>Regularly save backups of your data.</li>
             <li>Warm up your muscles and joints before exercising or stretching. </li>
             <li>Don't be afraid to ask for help. </li>
             <li>Boil the water before you put the eggs in. </li>
-            <li>Most importantly, life is too short for regrets! Today is the youngest you'll ever be. Go enjoy life. </li>
-            <li>Oh, and also. Meritocracy is a myth, race has no genetic basis, and IQ is not a complete indication of intelligence. That's also pretty important. </li>
+            <li>Today is the youngest you'll ever be. Life is short. Go enjoy it. </li>
+            <li>America is not a meritocracy. Race has no genetic basis. IQ is neither a complete nor accurate indication of intelligence.</li>
           </ul>
           <p>
             Alright. Peace. Go check out the links on the previous page if you want to know more about me or figure out what else I'm up to.

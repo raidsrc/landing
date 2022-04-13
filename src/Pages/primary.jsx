@@ -9,7 +9,7 @@ import iconYouTube from "../icon-youtube.png"
 import iconPayPal from "../icon-paypal.png"
 import iconVenmo from "../icon-venmo.png"
 import iconYoutubeMusic from "../icon-youtube-music.png"
-import conga from "../conga.jpg"
+import primaryImg from "../hilltop-closeup-4.jpeg"
 import iconRaidsrcMe from "../raid_symbol_trimmed_aligned_white_on_black_icon_more_padding.png"
 import React, { useEffect, useState } from "react"
 import { useSpring, animated } from "react-spring"
@@ -173,7 +173,7 @@ function PrimaryLandingPage(props) {
   ]
   const [mousedOverImg, setMousedOverImg] = useState(false)
   const imgSpringBounce = useSpring({
-    opacity: mousedOverImg ? 0.75 : 1,
+    // opacity: mousedOverImg ? 0.75 : 1,
     transform: mousedOverImg ? "scale(1.05)" : "scale(1)",
     config: {
       friction: 3,
@@ -187,11 +187,11 @@ function PrimaryLandingPage(props) {
         <meta name="description" content="Yo. I'm Raymond. People have also known me as Raid, Rude Custard, and Ray Louis. Come see where you can find me online." />
       </Helmet>
       <div className="flex flex-row justify-center pt-7 sm:pt-4 md:pt-0">
-        <animated.img src={conga} className="brightness-150  hidden rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs sm:inline-block
+        <animated.img src={primaryImg} className="hidden rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs sm:inline-block
                   sm:w-6/12 
                   md:w-4/12 
                   lg:w-3/12" style={imgSpringBounce} onMouseEnter={() => setMousedOverImg(true)} onMouseLeave={() => setMousedOverImg(false)} />
-        <img src={conga} className="brightness-150  rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
+        <img src={primaryImg} className="rounded-full w-9/12 outline outline-2 outline-gray-500 outline-offset-2 max-w-2xs
                   tiny-screen:w-8/12 
                   sm:hidden" />
       </div>
