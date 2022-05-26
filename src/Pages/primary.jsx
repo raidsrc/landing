@@ -226,12 +226,29 @@ function PrimaryLandingPage(props) {
         }
       })}
 
-      <div className="flex flex-row justify-center py-12 mt-3">
+      <div className="flex flex-row justify-center py-12 mt-16 text-stone-100">
+        <Link to="/sup" onClick={() => { scroll(0, 0) }}
+          className="text-center underline underline-offset-2 duration-150 hover:ease-in hover:text-gray-800">
+          About Me
+        </Link>
+        {/* <span className="px-4">睿</span>
+        <span
+          className="text-center underline underline-offset-2 duration-150 hover:ease-in hover:text-gray-800">
+          not a link
+        </span>
+        <span className="px-4">明</span>
+        <span 
+          className="text-center underline underline-offset-2 duration-150 hover:ease-in hover:text-gray-800">
+          not a link either
+        </span> */}
+      </div>
+
+      {/* <div className="flex flex-row justify-center py-12 mt-3">
         <Link to="/sup" onClick={() => { scroll(0, 0) }}
           className="text-white text-center border py-2 w-28 md:w-40 duration-150 hover:ease-in hover:border-gray-800 hover:opacity-100 active:opacity-80">
           Yo.
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

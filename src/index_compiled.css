@@ -556,6 +556,10 @@ h3 {
   z-index: -10;
 }
 
+.mt-16{
+  margin-top: 4rem;
+}
+
 .mt-3{
   margin-top: 0.75rem;
 }
@@ -673,14 +677,6 @@ h3 {
   resize: both;
 }
 
-.list-inside{
-  list-style-position: inside;
-}
-
-.list-disc{
-  list-style-type: disc;
-}
-
 .flex-row{
   flex-direction: row;
 }
@@ -763,9 +759,19 @@ h3 {
   padding-bottom: 3rem;
 }
 
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .py-6{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .py-10{
@@ -798,10 +804,6 @@ h3 {
   text-align: center;
 }
 
-.indent-3{
-  text-indent: 0.75rem;
-}
-
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
@@ -816,6 +818,11 @@ h3 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-stone-100{
+  --tw-text-opacity: 1;
+  color: rgb(245 245 244 / var(--tw-text-opacity));
+}
+
 .text-gray-100{
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
@@ -824,6 +831,10 @@ h3 {
 .underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+
+.underline-offset-2{
+  text-underline-offset: 2px;
 }
 
 .opacity-10{
@@ -917,6 +928,11 @@ h3 {
 .hover\:bg-gray-300:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.hover\:text-gray-800:hover{
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-100:hover{
