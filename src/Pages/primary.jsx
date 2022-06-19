@@ -9,7 +9,7 @@ import iconYouTube from "../icon-youtube.png"
 import iconPayPal from "../icon-paypal.png"
 import iconVenmo from "../icon-venmo.png"
 import iconYoutubeMusic from "../icon-youtube-music.png"
-import primaryImg from "../hilltop-closeup-4.jpeg"
+import primaryImg from "../ponytail.jpeg"
 import iconRaidsrcMe from "../raid_symbol_trimmed_aligned_white_on_black_icon_more_padding.png"
 import React, { useEffect, useState } from "react"
 import { useSpring, animated } from "react-spring"
@@ -232,15 +232,15 @@ function PrimaryLandingPage(props) {
           About Me
         </Link>
         {/* <span className="px-4">睿</span>
-        <span
+        <Link to="/sup" onClick={() => { scroll(0, 0) }}
           className="text-center underline underline-offset-2 duration-150 hover:ease-in hover:text-gray-800">
-          not a link
-        </span>
+          Advice
+        </Link>
         <span className="px-4">明</span>
-        <span 
+        <Link to="/sup" onClick={() => { scroll(0, 0) }}
           className="text-center underline underline-offset-2 duration-150 hover:ease-in hover:text-gray-800">
-          not a link either
-        </span> */}
+          More About Me
+        </Link> */}
       </div>
 
       {/* <div className="flex flex-row justify-center py-12 mt-3">
