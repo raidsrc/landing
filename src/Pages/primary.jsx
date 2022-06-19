@@ -148,10 +148,10 @@ function PrimaryLandingPage(props) {
     { name: "Twitter", href: "https://twitter.com/raidsrc", icon: iconTwitter, },
     // { name: "Twitch", href: "https://twitch.tv/raidsrc", icon: iconTwitch, },
     {
-      name: "Major Streaming Services", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconYoutubeMusic, iconAmazonMusic, iconSoundCloud], contents:
+      name: "Music Streaming Platforms", isDropdown: true, icon: [iconSpotify, iconAppleMusic, iconYoutubeMusic, iconAmazonMusic, iconSoundCloud], contents:
         [
           { name: "Spotify", href: "https://open.spotify.com/artist/21ORAHpo8HitrDkN9UBoKs", icon: iconSpotify, },
-          { name: "Spotify 2", href: "https://open.spotify.com/artist/0puS4sx2S57u3OUQbGJrV1", icon: iconSpotify, },
+          // { name: "Spotify 2", href: "https://open.spotify.com/artist/0puS4sx2S57u3OUQbGJrV1", icon: iconSpotify, },
           { name: "Apple Music", href: "https://music.apple.com/us/artist/rude-custard/1603268147", icon: iconAppleMusic, },
           { name: "YouTube Music", href: "https://music.youtube.com/channel/UCGKvRfdzgIk6hrr-D4lkzYA", icon: iconYoutubeMusic, },
           { name: "Amazon Music", href: "https://music.amazon.com/artists/B09PNVRFQT/rude-custard ", icon: iconAmazonMusic, },
@@ -165,7 +165,7 @@ function PrimaryLandingPage(props) {
       ]
     },
     {
-      name: "Tip Jar", isDropdown: true, icon: [iconVenmo, iconPayPal], contents: [
+      name: "Gimme Money", isDropdown: true, icon: [iconVenmo, iconPayPal], contents: [
         { name: "Venmo", href: "https://venmo.com/u/raidsrc", icon: iconVenmo, },
         { name: "PayPal", href: "https://paypal.me/raidsrc", icon: iconPayPal, },
       ]

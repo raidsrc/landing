@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import BackButton from "../BackButton"
 import { Helmet } from "react-helmet"
-import supImg from "../lighthouse.jpg"
+import supImg from "../lighthouse2.jpg"
 import { Link } from "react-router-dom"
 
 function SupPage(props) {
@@ -70,10 +70,10 @@ function SupPage(props) {
             You probably found your way here from my YouTube channel. Or perhaps you got here from my Twitter. Or&nbsp;<span className="italic">maybe&nbsp;</span>even from some music provider. Unlikely, as they've all been giving me a bit of trouble lately. Whatever it may be, I'm glad you're here.
           </p>
           <p>
-            Let me give myself a quick introduction. I'm Ray! I upload YouTube videos under the alias <span className="text-gray-100">Raid</span>. I make music under the name <span className="text-gray-100">Rude Custard</span>. All over the rest of the internet, I go by <span className="text-gray-100">raidsrc</span>. At this point I'm known mostly for my YouTube channel, where I've been uploading since I was 15. I do a lot of music stuff on my channel. Covers, rearrangements, original compositions, and tutorials, mainly. I've made a lot of stuff related to the media I've enjoyed, like <span className="text-gray-100">Homestuck</span> and <span className="text-gray-100">Fullmetal Alchemist: Brotherhood</span>. I like video editing too. I've made a bunch of videos about a whole bunch of things. Some of them for school projects, some of them for fun. A couple of my videos on <span className="text-gray-100">Super Smash Bros Melee</span>, one of my old hobbies, have been enthusiastically received by community members.
+            Let me give myself a quick introduction. I'm Ray! I upload YouTube videos to a channel called <span className="text-gray-100">Raid</span>. I release music under the name <span className="text-gray-100">Rude Custard</span>. All over the rest of the internet, I go by <span className="text-gray-100">raidsrc</span>. At this point I'm known mostly for my YouTube channel, where I've been uploading since I was 15. I do a lot of music stuff on my channel. Covers, rearrangements, original compositions, and tutorials, mainly. I've made a lot of stuff related to the media I've enjoyed, like <span className="text-gray-100">Homestuck</span> and <span className="text-gray-100">Fullmetal Alchemist: Brotherhood</span>. I like video editing too. I've made a bunch of videos about a whole bunch of things. Some of them for school projects, some of them for fun. A couple of my videos on <span className="text-gray-100">Super Smash Bros Melee</span>, one of my old hobbies, have been enthusiastically received by community members.
           </p>
           <p>
-            Right now, I'm an undergraduate student at the <span className="text-gray-100">University of California Davis</span>. I'm majoring in <span className="text-gray-100">Biochemistry and Molecular Biology</span> and minoring in <span className="text-gray-100">Computer Science</span>. The year I'm writing this blurb, 2022, is the year I graduate. Whew. I'm definitely looking forward to being done with school come June.
+            I just graduated from the <span className="text-gray-100">University of California Davis</span> with a degree in <span className="text-gray-100">Biochemistry and Molecular Biology</span> and a minor in <span className="text-gray-100">Computer Science</span>. Glad to be done with school, but where do I go from here? Hmm. I guess I'll find out soon enough.
           </p>
           <p>
             Alright. Peace. Go click the links on the previous page to see what else I'm up to.
